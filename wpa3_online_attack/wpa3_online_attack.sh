@@ -244,7 +244,7 @@ function manage_wpa3_log() {
 	debug_print
 
 	wpa3_potpath="${default_save_path}"
-	wpa3pot_filename="wpa3_password-${essid}.txt"
+	wpa3pot_filename=$(sanitize_path "wpa3_password-${essid}.txt")
 	wpa3_potpath="${wpa3_potpath}${wpa3pot_filename}"
 
 	validpath=1

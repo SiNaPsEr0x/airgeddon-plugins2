@@ -11,7 +11,7 @@ plugin_author="OscarAkaElvis"
 
 plugin_enabled=1
 
-plugin_minimum_ag_affected_version="11.52"
+plugin_minimum_ag_affected_version="11.60"
 plugin_maximum_ag_affected_version=""
 plugin_distros_supported=("*")
 
@@ -244,7 +244,7 @@ function manage_wpa3_log() {
 	debug_print
 
 	wpa3_potpath="${default_save_path}"
-	wpa3pot_filename="wpa3_password-${essid}.txt"
+	wpa3pot_filename=$(sanitize_path "wpa3_password-${essid}.txt")
 	wpa3_potpath="${wpa3_potpath}${wpa3pot_filename}"
 
 	validpath=1
@@ -324,10 +324,10 @@ function wpa3_online_dictionary_attack_option() {
 #Prehook hookable_wpa3_attacks_menu function to modify wpa3 menu options
 function wpa3_online_attack_prehook_hookable_wpa3_attacks_menu() {
 
-	if [ "${arr['ENGLISH',756]}" = "5.  WPA3 online dictionary attack" ]; then
+	if [ "${arr['ENGLISH',756]}" = "6.  WPA3 online dictionary attack" ]; then
 		plugin_x="wpa3_online_dictionary_attack_option"
 		plugin_x_under_construction=""
-	elif [ "${arr['ENGLISH',757]}" = "6.  WPA3 online dictionary attack" ]; then
+	elif [ "${arr['ENGLISH',757]}" = "7.  WPA3 online dictionary attack" ]; then
 		plugin_y="wpa3_online_dictionary_attack_option"
 		plugin_y_under_construction=""
 	fi
@@ -337,49 +337,49 @@ function wpa3_online_attack_prehook_hookable_wpa3_attacks_menu() {
 #shellcheck disable=SC1111
 function wpa3_online_attack_prehook_hookable_for_languages() {
 
-	if [ "${arr['ENGLISH',756]}" = "5.  WPA3 attack (use a plugin here)" ]; then
-		arr["ENGLISH",756]="5.  WPA3 online dictionary attack"
-		arr["SPANISH",756]="5.  Ataque de diccionario online de WPA3"
-		arr["FRENCH",756]="5.  Attaque online WPA3 avec dictionaire"
-		arr["CATALAN",756]="5.  Atac de diccionari en línia de WPA3"
-		arr["PORTUGUESE",756]="5.  Ataque online de dicionário no WPA3"
-		arr["RUSSIAN",756]="5.  Онлайн атака на WPA3 со словарём"
-		arr["GREEK",756]="5.  Διαδικτυακή επίθεση σε WPA3 με λεξικό"
-		arr["ITALIAN",756]="5.  Attacco online WPA3 con dizionario"
-		arr["POLISH",756]="5.  Atak słownikowy online WPA3"
-		arr["GERMAN",756]="5.  WPA3-Angriff auf das Online-Wörterbuch"
-		arr["TURKISH",756]="5.  WPA3 çevrimiçi sözlük saldırısı"
-		arr["ARABIC",756]="5.  WPA3 قاموس الهجوم علي الشبكة ل"
-		arr["CHINESE",756]="5.  WPA3 在线字典攻击"
-	elif [ "${arr['ENGLISH',757]}" = "6.  WPA3 attack (use a plugin here)" ]; then
-		arr["ENGLISH",757]="6.  WPA3 online dictionary attack"
-		arr["SPANISH",757]="6.  Ataque de diccionario online de WPA3"
-		arr["FRENCH",757]="6.  Attaque online WPA3 avec dictionaire"
-		arr["CATALAN",757]="6.  Atac de diccionari en línia de WPA3"
-		arr["PORTUGUESE",757]="6.  Ataque online de dicionário no WPA3"
-		arr["RUSSIAN",757]="6.  Онлайн атака на WPA3 со словарём"
-		arr["GREEK",757]="6.  Διαδικτυακή επίθεση σε WPA3 με λεξικό"
-		arr["ITALIAN",757]="6.  Attacco online WPA3 con dizionario"
-		arr["POLISH",757]="6.  Atak słownikowy online WPA3"
-		arr["GERMAN",757]="6.  WPA3-Angriff auf das Online-Wörterbuch"
-		arr["TURKISH",757]="6.  WPA3 çevrimiçi sözlük saldırısı"
-		arr["ARABIC",757]="6.  WPA3 قاموس الهجوم علي الشبكة ل"
-		arr["CHINESE",757]="6.  WPA3 在线字典攻击"
+	if [ "${arr['ENGLISH',756]}" = "6.  WPA3 attack (use a plugin here)" ]; then
+		arr["ENGLISH",756]="6.  WPA3 online dictionary attack"
+		arr["SPANISH",756]="6.  Ataque de diccionario online de WPA3"
+		arr["FRENCH",756]="6.  Attaque online WPA3 avec dictionaire"
+		arr["CATALAN",756]="6.  Atac de diccionari en línia de WPA3"
+		arr["PORTUGUESE",756]="6.  Ataque online de dicionário no WPA3"
+		arr["RUSSIAN",756]="6.  Онлайн атака на WPA3 со словарём"
+		arr["GREEK",756]="6.  Διαδικτυακή επίθεση σε WPA3 με λεξικό"
+		arr["ITALIAN",756]="6.  Attacco online WPA3 con dizionario"
+		arr["POLISH",756]="6.  Atak słownikowy online WPA3"
+		arr["GERMAN",756]="6.  WPA3-Angriff auf das Online-Wörterbuch"
+		arr["TURKISH",756]="6.  WPA3 çevrimiçi sözlük saldırısı"
+		arr["ARABIC",756]="6.  WPA3 قاموس الهجوم علي الشبكة ل"
+		arr["CHINESE",756]="6.  WPA3 在线字典攻击"
+	elif [ "${arr['ENGLISH',757]}" = "7.  WPA3 attack (use a plugin here)" ]; then
+		arr["ENGLISH",757]="7.  WPA3 online dictionary attack"
+		arr["SPANISH",757]="7.  Ataque de diccionario online de WPA3"
+		arr["FRENCH",757]="7.  Attaque online WPA3 avec dictionaire"
+		arr["CATALAN",757]="7.  Atac de diccionari en línia de WPA3"
+		arr["PORTUGUESE",757]="7.  Ataque online de dicionário no WPA3"
+		arr["RUSSIAN",757]="7.  Онлайн атака на WPA3 со словарём"
+		arr["GREEK",757]="7.  Διαδικτυακή επίθεση σε WPA3 με λεξικό"
+		arr["ITALIAN",757]="7.  Attacco online WPA3 con dizionario"
+		arr["POLISH",757]="7.  Atak słownikowy online WPA3"
+		arr["GERMAN",757]="7.  WPA3-Angriff auf das Online-Wörterbuch"
+		arr["TURKISH",757]="7.  WPA3 çevrimiçi sözlük saldırısı"
+		arr["ARABIC",757]="7.  WPA3 قاموس الهجوم علي الشبكة ل"
+		arr["CHINESE",757]="7.  WPA3 在线字典攻击"
 	fi
 
 	arr["ENGLISH","wpa3_online_attack_1"]="WPA3 online dictionary attacks take significantly longer than offline cracking, so they should be performed only against pure WPA3 networks. If the target is a WPA2/WPA3 Transitional (Mixed mode) network, prefer traditional WPA2 techniques (Handshake, PMKID) or a downgrade attack rather than attempting the slow online WPA3 attack"
 	arr["SPANISH","wpa3_online_attack_1"]="Los ataques de diccionario online contra WPA3 tardan mucho más que el cracking offline, por lo que debes realizarlos solo contra redes puramente WPA3. Si el objetivo es una WPA2/WPA3 Transitional (Mixed mode), prefiere las técnicas tradicionales de WPA2 (Handshake, PMKID) o un ataque de downgrade en lugar de intentar el lento ataque WPA3 online"
-	arr["FRENCH","wpa3_online_attack_1"]="\${pending_of_translation} Les attaques par dictionnaire en ligne contre WPA3 prennent beaucoup plus de temps que le craquage hors ligne, elles doivent donc être effectuées uniquement contre des réseaux purement WPA3. Si la cible est une WPA2/WPA3 Transitional (Mixed mode), privilégie les techniques WPA2 traditionnelles (Handshake, PMKID) ou une attaque de downgrade plutôt que d'essayer la lente attaque WPA3 en ligne"
-	arr["CATALAN","wpa3_online_attack_1"]="\${pending_of_translation} Els atacs de diccionari en línia contra WPA3 triguen molt més que el craqueig offline, així que només els has de fer contra xarxes purament WPA3. Si l'objectiu és una WPA2/WPA3 Transitional (Mixed mode), prefereix les tècniques tradicionals de WPA2 (Handshake, PMKID) o un atac de downgrade en lloc d'intentar el lent atac WPA3 online"
-	arr["PORTUGUESE","wpa3_online_attack_1"]="\${pending_of_translation} Os ataques de dicionário online contra WPA3 demoram muito mais do que o cracking offline, por isso só deves realizá-los contra redes puramente WPA3. Se o alvo for uma WPA2/WPA3 Transitional (Mixed mode), prefere técnicas tradicionais de WPA2 (Handshake, PMKID) ou um ataque de downgrade em vez de tentar o lento ataque WPA3 online"
-	arr["RUSSIAN","wpa3_online_attack_1"]="\${pending_of_translation} Онлайн-атаки словарём против WPA3 занимают значительно больше времени, чем офлайн-взлом, поэтому их следует выполнять только против чистых сетей WPA3. Если целью является WPA2/WPA3 Transitional (Mixed mode), предпочитай традиционные приёмы WPA2 (Handshake, PMKID) или атаку по понижению версии вместо попытки медленной онлайн-атаки WPA3"
-	arr["GREEK","wpa3_online_attack_1"]="\${pending_of_translation} Οι επιθέσεις λεξικού online κατά του WPA3 διαρκούν πολύ περισσότερο από το cracking offline, οπότε πρέπει να γίνονται μόνο σε καθαρά δίκτυα WPA3. Εάν ο στόχος είναι μια WPA2/WPA3 Transitional (Mixed mode), προτίμησε τις παραδοσιακές τεχνικές WPA2 (Handshake, PMKID) ή μια επίθεση downgrade αντί να προσπαθήσεις την αργή online επίθεση WPA3"
-	arr["ITALIAN","wpa3_online_attack_1"]="\${pending_of_translation} Gli attacchi dizionario online contro WPA3 richiedono molto più tempo rispetto al cracking offline, quindi dovresti eseguirli solo contro reti puramente WPA3. Se l'obiettivo è una WPA2/WPA3 Transitional (Mixed mode), preferisci le tecniche tradizionali WPA2 (Handshake, PMKID) o un attacco di downgrade invece di tentare il lento attacco WPA3 online"
-	arr["POLISH","wpa3_online_attack_1"]="\${pending_of_translation} Ataki słownikowe online na WPA3 zajmują znacznie więcej czasu niż łamanie offline, dlatego powinny być wykonywane tylko przeciwko czystym sieciom WPA3. Jeśli celem jest sieć WPA2/WPA3 Transitional (Mixed mode), preferuj tradycyjne techniki WPA2 (Handshake, PMKID) lub atak downgrade zamiast próby powolnego ataku WPA3 online"
-	arr["GERMAN","wpa3_online_attack_1"]="\${pending_of_translation} WPA3 Online-Dictionary-Angriffe dauern deutlich länger als Offline-Cracking, daher sollten sie nur gegen reine WPA3-Netzwerke durchgeführt werden. Wenn das Ziel eine WPA2/WPA3 Transitional (Mixed mode) ist, verwende bevorzugt traditionelle WPA2-Techniken (Handshake, PMKID) oder einen Downgrade-Angriff anstelle des langsamen Online-WPA3-Angriffs"
-	arr["TURKISH","wpa3_online_attack_1"]="\${pending_of_translation} WPA3'e yönelik çevrimiçi sözlük saldırıları, çevrimdışı kırmadan çok daha uzun sürer; bu yüzden yalnızca saf WPA3 ağlarına karşı gerçekleştirilmelidir. Hedef bir WPA2/WPA3 Transitional (Mixed mode) ise yavaş çevrimiçi WPA3 saldırısını denemek yerine geleneksel WPA2 tekniklerini (Handshake, PMKID) veya bir downgrade saldırısını tercih et"
-	arr["ARABIC","wpa3_online_attack_1"]="\${pending_of_translation} تستغرق هجمات القاموس عبر الإنترنت ضد WPA3 وقتًا أطول بكثير من الكسر دون اتصال، لذلك يجب تنفيذها فقط ضد شبكات WPA3 النقية. إذا كان الهدف شبكة WPA2/WPA3 Transitional (Mixed mode)، ففضل تقنيات WPA2 التقليدية (Handshake, PMKID) أو هجوم خفض الإصدار بدلاً من محاولة الهجوم البطيء WPA3 عبر الإنترنت"
-	arr["CHINESE","wpa3_online_attack_1"]="\${pending_of_translation} 针对 WPA3 的在线字典攻击比离线破解需要的时间长得多，因此应仅针对纯 WPA3 网络执行。如果目标是 WPA2/WPA3 Transitional (Mixed mode)，优先使用传统的 WPA2 技术（Handshake, PMKID）或降级攻击，而不是尝试缓慢的在线 WPA3 攻击"
+	arr["FRENCH","wpa3_online_attack_1"]="Les attaques par dictionnaire en ligne contre WPA3 prennent beaucoup plus de temps que le cracking hors ligne, elles doivent être effectuées uniquement contre des réseaux purement WPA3. Si la cible est une WPA2/WPA3 Transitional (Mixed mode), choisi les techniques WPA2 traditionnelles (Handshake, PMKID) ou une attaque de downgrade plutôt que d'essayer la lente attaque WPA3 en ligne"
+	arr["CATALAN","wpa3_online_attack_1"]="Els atacs de diccionari en línia contra WPA3 triguen molt més que el craqueig offline, així que només els has de fer contra xarxes purament WPA3. Si l'objectiu és una WPA2/WPA3 Transitional (Mixed mode), prefereix les tècniques tradicionals de WPA2 (Handshake, PMKID) o un atac de downgrade en lloc d'intentar el lent atac WPA3 online"
+	arr["PORTUGUESE","wpa3_online_attack_1"]="Os ataques de dicionário online contra WPA3 demoram muito mais do que a descriptografia offline, por isso só devem ser realizados contra redes WPA3 puras. Se a rede alvo for WPA2/WPA3 Transitional (Mixed mode), dê preferência às técnicas tradicionais de WPA2 (Handshake, PMKID) ou a um ataque de downgrade em vez de tentar o lento ataque WPA3 online"
+	arr["RUSSIAN","wpa3_online_attack_1"]="Онлайн атаки со словарём на WPA3 сети занимают значительно больше времени, нежели оффлайн перебор, поэтому их следует выполнять только против сетей, использующих исключительно WPA3. Если целью является сеть в WPA2/WPA3 Transitional (Mixed mode) режиме, предпочтительны традиционные приёмы нацеленные на WPA2 (такие как перехват Handshake, PMKID), либо downgrade атаки, заместо медленной онлайн атаки на WPA3"
+	arr["GREEK","wpa3_online_attack_1"]="Οι online επιθέσεις λεξικού σε WPA3 διαρκούν σημαντικά περισσότερο από το   cracking  εκτός σύνδεσης, για αυτό πρέπει να εκτελούνται μόνο σε καθαρά δίκτυα WPA3. Εάν ο στόχος είναι ένα  WPA2/WPA3 Transitional (Mixed mode) δίκτυο, προτίμησε τις παραδοσιακές τεχνικές για WPA2 (Handshake, PMKID) ή μια επίθεση υποβάθμισης, αντί να επιχειρήσεις την αργή online επίθεση για WPA3"
+	arr["ITALIAN","wpa3_online_attack_1"]="Gli attacchi dizionario online contro WPA3 richiedono molto più tempo rispetto al cracking offline, quindi dovresti eseguirli solo contro reti puramente WPA3. Se l'obiettivo è una WPA2/WPA3 Transitional (Mixed mode), è meglio utilizzare le tecniche tradizionali WPA2 (Handshake, PMKID) o un attacco di downgrade invece di tentare il lento attacco WPA3 online"
+	arr["POLISH","wpa3_online_attack_1"]="Ataki słownikowe online na WPA3 zajmują znacznie więcej czasu niż łamanie offline, dlatego powinny być wykonywane tylko przeciwko sieciom WPA3 bez innych trybów. Jeśli celem jest sieć mieszana WPA2/WPA3 Transitional (Mixed mode), preferowane są tradycyjne techniki WPA2 (Handshake, PMKID) lub atak downgrade zamiast próby powolnego ataku WPA3 online"
+	arr["GERMAN","wpa3_online_attack_1"]="WPA3-Online-Wörterbuchangriffe dauern deutlich länger als Offline-Cracking, daher sollten sie nur gegen reine WPA3-Netzwerke durchgeführt werden. Wenn es sich bei dem Ziel um ein WPA2/WPA3 Transitional (Mixed mode) handelt, sollten Sie traditionelle WPA2-Techniken (Handshake, PMKID) oder einen Downgrade-Angriff bevorzugen, anstatt den langsamen Online-WPA3-Angriff zu versuchen"
+	arr["TURKISH","wpa3_online_attack_1"]="WPA3 çevrimiçi sözlük saldırıları, çevrimdışı kırmaya göre önemli ölçüde daha uzun sürdüğünden yalnızca saf WPA3 ağlarına karşı uygulanmalıdır. Hedef bir WPA2/WPA3 Transitional (Mixed mode) ağı ise, yavaş çevrimiçi WPA3 saldırısını denemek yerine geleneksel WPA2 tekniklerini (Handshake, PMKID) veya bir düşürme (downgrade) saldırısını tercih edin"
+	arr["ARABIC","wpa3_online_attack_1"]="تستغرق هجمات القاموس عبر الإنترنت ضد WPA3 وقتًا أطول بكثير من الكسر دون اتصال، لذلك يجب تنفيذها فقط ضد شبكات WPA3. إذا كان الهدف شبكة WPA2/WPA3 Transitional (Mixed mode)، ففضل تقنيات WPA2 التقليدية (Handshake, PMKID) أو هجوم خفض الإصدار بدلاً من محاولة الهجوم البطيء WPA3 عبر الإنترنت"
+	arr["CHINESE","wpa3_online_attack_1"]="针对 WPA3 的在线字典攻击比离线破解需要的时间长得多，因此应仅针对纯 WPA3 网络执行。如果目标是 WPA2/WPA3 混合模式 (Mixed mode)，则应优先使用传统的 WPA2 技术（Handshake, PMKID）或降级攻击，而不是尝试缓慢的在线 WPA3 攻击"
 	wpa3_hints+=("wpa3_online_attack_1")
 
 	arr["ENGLISH","wpa3_online_attack_2"]="This attack requires to have python3.1+ installed on your system"

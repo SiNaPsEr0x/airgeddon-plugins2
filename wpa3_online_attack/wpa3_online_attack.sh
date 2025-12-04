@@ -330,7 +330,7 @@ function wpa3_online_attack_prehook_hookable_wpa3_attacks_menu() {
 	elif [ "${arr['ENGLISH',757]}" = "7.  WPA3 online dictionary attack" ]; then
 		plugin_y="wpa3_online_dictionary_attack_option"
 		plugin_y_under_construction=""
-	elif [ "${arr['ENGLISH',812]}" = "7.  WPA3 online dictionary attack" ]; then
+	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 online dictionary attack" ]; then
 		plugin_z="wpa3_online_dictionary_attack_option"
 		plugin_z_under_construction=""
 	fi

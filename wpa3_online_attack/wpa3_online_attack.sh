@@ -285,6 +285,15 @@ function wpa3_online_dictionary_attack_option() {
 		managed_option "${interface}"
 	fi
 
+	if [[ -n "${channel}" ]] && [[ "${channel}" -gt 14 ]]; then
+		if [ "${interfaces_band_info['main_wifi_interface','5Ghz_allowed']}" -eq 0 ]; then
+			echo
+			language_strings "${language}" 515 "red"
+			language_strings "${language}" 115 "read"
+			return 1
+		fi
+	fi
+
 	if ! validate_wpa3_network; then
 		return 1
 	fi

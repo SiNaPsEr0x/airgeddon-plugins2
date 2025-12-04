@@ -11,7 +11,7 @@ plugin_author="OscarAkaElvis"
 
 plugin_enabled=1
 
-plugin_minimum_ag_affected_version="11.60"
+plugin_minimum_ag_affected_version="11.61"
 plugin_maximum_ag_affected_version=""
 plugin_distros_supported=("*")
 
@@ -330,6 +330,9 @@ function wpa3_online_attack_prehook_hookable_wpa3_attacks_menu() {
 	elif [ "${arr['ENGLISH',757]}" = "7.  WPA3 online dictionary attack" ]; then
 		plugin_y="wpa3_online_dictionary_attack_option"
 		plugin_y_under_construction=""
+	elif [ "${arr['ENGLISH',812]}" = "7.  WPA3 online dictionary attack" ]; then
+		plugin_z="wpa3_online_dictionary_attack_option"
+		plugin_z_under_construction=""
 	fi
 }
 
@@ -365,6 +368,20 @@ function wpa3_online_attack_prehook_hookable_for_languages() {
 		arr["TURKISH",757]="7.  WPA3 çevrimiçi sözlük saldırısı"
 		arr["ARABIC",757]="7.  WPA3 قاموس الهجوم علي الشبكة ل"
 		arr["CHINESE",757]="7.  WPA3 在线字典攻击"
+	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 attack (use a plugin here)" ]; then
+		arr["ENGLISH",812]="8.  WPA3 online dictionary attack"
+		arr["SPANISH",812]="8.  Ataque de diccionario online de WPA3"
+		arr["FRENCH",812]="8.  Attaque online WPA3 avec dictionaire"
+		arr["CATALAN",812]="8.  Atac de diccionari en línia de WPA3"
+		arr["PORTUGUESE",812]="8.  Ataque online de dicionário no WPA3"
+		arr["RUSSIAN",812]="8.  Онлайн атака на WPA3 со словарём"
+		arr["GREEK",812]="8.  Διαδικτυακή επίθεση σε WPA3 με λεξικό"
+		arr["ITALIAN",812]="8.  Attacco online WPA3 con dizionario"
+		arr["POLISH",812]="8.  Atak słownikowy online WPA3"
+		arr["GERMAN",812]="8.  WPA3-Angriff auf das Online-Wörterbuch"
+		arr["TURKISH",812]="8.  WPA3 çevrimiçi sözlük saldırısı"
+		arr["ARABIC",812]="8.  WPA3 قاموس الهجوم علي الشبكة ل"
+		arr["CHINESE",812]="8.  WPA3 在线字典攻击"
 	fi
 
 	arr["ENGLISH","wpa3_online_attack_1"]="WPA3 online dictionary attacks take significantly longer than offline cracking, so they should be performed only against pure WPA3 networks. If the target is a WPA2/WPA3 Transitional (Mixed mode) network, prefer traditional WPA2 techniques (Handshake, PMKID) or a downgrade attack rather than attempting the slow online WPA3 attack"
@@ -438,3 +455,4 @@ function wpa3_online_attack_prehook_hookable_for_languages() {
 	arr["ARABIC","wpa3_online_attack_5"]="تلقائيًا لتتمكن من تنفيذ الهجوم airgeddon لذلك سيغيرها ,\"Monitor\" تم اكتشاف أن شريحتك في وضع .\"Managed\" لبدء هذا الهجوم ، يجب أن تكون الشريحتك في وضع"
 	arr["CHINESE","wpa3_online_attack_5"]="要发起此攻击，该卡必须处于“管理”模式。检测到您的卡处于“监听”模式，因此 airgeddon 会自动更改它以能够进行攻击"
 }
+

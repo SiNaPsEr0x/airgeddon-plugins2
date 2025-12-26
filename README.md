@@ -33,6 +33,14 @@ This plugin is for [airgeddon] tool. Using a modified and pre-compiled wpa_suppl
 
 It is based on the [Wacker] script. Credits to the author/s: [https://github.com/blunderbuss-wctf/wacker](https://github.com/blunderbuss-wctf/wacker). Credits also for The staff of the [Ermine] tool for their contribution donating free use of their awesome statifier tool used in the WPA3 online attack plugin to make executable portable.
 
+## airgeddon. WPA3 cookie guzzler
+
+> An airgeddon plugin to perform a WPA3 Cookie Guzzler DoS attack.
+
+This plugin is for [airgeddon] tool. It combines a Bash wrapper with a Python helper to run the Cookie Guzzler procedure from the WPA3 attacks menu on `airgeddon>=11.61`. The attack can leverage a secondary adapter to capture SAE scalar and finite field values automatically or allows entering them manually to reuse previous captures. Once armed, it continuously injects crafted frames to overwhelm the target AP causing Denial of Service (DoS).
+
+This plugin requires `python>=3.1`, `tshark`, and `wpa_supplicant` to be available on the system.
+
 ## airgeddon. All chars accepted on Captive Portal
 
 > An airgeddon plugin to decrease security to accept any char as part of the password for Evil Twin Captive Portal attack.

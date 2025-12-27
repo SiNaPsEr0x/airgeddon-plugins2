@@ -43,7 +43,7 @@ This plugin for [airgeddon] tool combines a Bash wrapper with a Python helper to
 
 The requirements for this plugin are `python>=3.6`, `tshark`, and `wpa_supplicant` to be available on the system.
 
-This plugin is based on the paper available [here](https://www.sciencedirect.com/science/article/pii/S221421262100243X?via%3Dihub). Credits to the authors.
+Credits to [Nuseo1] for his help researching WPA3 DoS, and to the original authors of the paper available [here](https://www.sciencedirect.com/science/article/pii/S221421262100243X?via%3Dihub).
 
 ## airgeddon. All chars accepted on Captive Portal
 
@@ -103,3 +103,4 @@ If you have any other wireless card with a different Realtek chipset which is al
 [Wacker]: https://github.com/blunderbuss-wctf/wacker
 [OscarAkaElvis]: https://github.com/OscarAkaElvis
 [Ermine]: https://www.magicermine.com/
+[Nuseo1]: https://github.com/Nuseo1

@@ -7,7 +7,7 @@ plugin_name="WPA3 cookie guzzler"
 plugin_description="A plugin to perform a WPA3 Cookie Guzzler DoS attack"
 plugin_author="OscarAkaElvis"
 
-#Credits for Nuseo1 for his help on researching WPA3 DoS
+#Credits to Nuseo1 for his help researching WPA3 DoS, and to the original authors of the paper: https://www.sciencedirect.com/science/article/pii/S221421262100243X?via%3Dihub
 
 plugin_enabled=1
 

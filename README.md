@@ -23,7 +23,7 @@ A plugin can be a single `.sh` file or may contain a more complex structure. To 
         └── wpa_supplicant_i386
 ```
 
-Plugins system feature is available from `airgeddon>=10.0`. More information about plugins at [Wiki] on original [airgeddon] Github repository.
+Plugins system feature is available from `airgeddon>=10.0`. More information about plugins at [Wiki] on original [airgeddon] GitHub repository.
 
 ## airgeddon. WPA3 online attack
 
@@ -31,15 +31,19 @@ Plugins system feature is available from `airgeddon>=10.0`. More information abo
 
 This plugin is for [airgeddon] tool. Using a modified and pre-compiled wpa_supplicant binary, the system is able to distinguish AP responses in order to validate if the attack was successful or not. `airgeddon` is adding a new menu option for this online dictionary attack over WPA3 wireless networks. It works for `airgeddon>=11.30`.
 
-It is based on the [Wacker] script. Credits to the author/s: [https://github.com/blunderbuss-wctf/wacker](https://github.com/blunderbuss-wctf/wacker). Credits also for The staff of the [Ermine] tool for their contribution donating free use of their awesome statifier tool used in the WPA3 online attack plugin to make executable portable.
+This plugin requires `python>=3.6` to be available on the system.
+
+It is based on the [Wacker] script. Credits to the authors: [https://github.com/blunderbuss-wctf/wacker](https://github.com/blunderbuss-wctf/wacker). Credits also for The staff of the [Ermine] tool for their contribution donating free use of their awesome statifier tool used in the WPA3 online attack plugin to make executable portable.
 
 ## airgeddon. WPA3 cookie guzzler
 
 > An airgeddon plugin to perform a WPA3 Cookie Guzzler DoS attack.
 
-This plugin is for [airgeddon] tool. It combines a Bash wrapper with a Python helper to run the Cookie Guzzler procedure from the WPA3 attacks menu on `airgeddon>=11.61`. The attack can leverage a secondary adapter to capture SAE scalar and finite field values automatically or allows entering them manually to reuse previous captures. Once armed, it continuously injects crafted frames to overwhelm the target AP causing Denial of Service (DoS).
+This plugin for [airgeddon] tool combines a Bash wrapper with a Python helper to run the Cookie Guzzler procedure from the WPA3 attacks menu on `airgeddon>=11.61`. The attack can leverage a secondary adapter to capture SAE scalar and finite field values automatically or allows entering them manually to reuse previous captures. Once armed, it continuously injects crafted frames to overwhelm the target AP causing Denial of Service (DoS).
 
-This plugin requires `python>=3.1`, `tshark`, and `wpa_supplicant` to be available on the system.
+The requirements for this plugin are `python>=3.1`, `tshark`, and `wpa_supplicant` to be available on the system.
+
+This plugin is based on the paper available at https://www.sciencedirect.com/science/article/pii/S221421262100243X?via%3Dihub.
 
 ## airgeddon. All chars accepted on Captive Portal
 
@@ -81,7 +85,7 @@ Basically, this fix for the listed Realtek cards the ability to switch mode from
 Known problems even using the plugin depending on your driver version and Kernel:
 
  - WPS wash scanning
- - VIF (Virtual Interface) problem. It affects to DoS during Evil Twin attacks (while the interface is splitted into two logical interfaces)
+ - VIF (Virtual Interface) problem. It affects to DoS during Evil Twin attacks (while the interface is split into two logical interfaces)
 
 These known problems are not related to airgeddon and can't be fixed on airgeddon's side. They are directly related to driver capabilities so for now they can't be fixed.
 

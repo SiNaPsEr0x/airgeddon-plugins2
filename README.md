@@ -41,9 +41,9 @@ It is based on the [Wacker] script. Credits to the authors: [https://github.com/
 
 This plugin for [airgeddon] tool combines a Bash wrapper with a Python helper to run the Cookie Guzzler procedure from the WPA3 attacks menu on `airgeddon>=11.61`. The attack can leverage a secondary adapter to capture SAE scalar and finite field values automatically or allows entering them manually to reuse previous captures. Once armed, it continuously injects crafted frames to overwhelm the target AP causing Denial of Service (DoS).
 
-The requirements for this plugin are `python>=3.1`, `tshark`, and `wpa_supplicant` to be available on the system.
+The requirements for this plugin are `python>=3.6`, `tshark`, and `wpa_supplicant` to be available on the system.
 
-This plugin is based on the paper available at https://www.sciencedirect.com/science/article/pii/S221421262100243X?via%3Dihub.
+This plugin is based on the paper available [here](https://www.sciencedirect.com/science/article/pii/S221421262100243X?via%3Dihub). Credits to the authors.
 
 ## airgeddon. All chars accepted on Captive Portal
 

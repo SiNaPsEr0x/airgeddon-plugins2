@@ -41,7 +41,7 @@ function python3_wpa3_cookie_guzzler_script_validation() {
 	return 0
 }
 
-#Custom function. Validate if the system has python3.1+ installed and set python launcher
+#Custom function. Validate if the system has python3.6+ installed and set python launcher
 function python3_wpa3_cookie_guzzler_validation() {
 
 	debug_print
@@ -53,8 +53,18 @@ function python3_wpa3_cookie_guzzler_validation() {
 			language_strings "${language}" 115 "read"
 			return 1
 		else
-			python_version=$(python -V 2>&1 | sed 's/.* \([0-9]\).\([0-9]\).*/\1\2/')
-			if [ "${python_version}" -lt "31" ]; then
+			local python_major
+			local python_minor
+			local python_version_raw
+			python_version_raw=$(python -V 2>&1)
+			if [[ "${python_version_raw}" =~ ([0-9]+)\.([0-9]+) ]]; then
+				python_major="${BASH_REMATCH[1]}"
+				python_minor="${BASH_REMATCH[2]}"
+			else
+				python_major=0
+				python_minor=0
+			fi
+			if [[ "${python_major}" -lt 3 ]] || { [[ "${python_major}" -eq 3 ]] && [[ "${python_minor}" -lt 6 ]]; }; then
 				echo
 				language_strings "${language}" "wpa3_cookie_guzzler_2" "red"
 				language_strings "${language}" 115 "read"
@@ -63,8 +73,18 @@ function python3_wpa3_cookie_guzzler_validation() {
 			python3="python"
 		fi
 	else
-		python_version=$(python3 -V 2>&1 | sed 's/.* \([0-9]\).\([0-9]\).*/\1\2/')
-		if [ "${python_version}" -lt "31" ]; then
+		local python_major
+		local python_minor
+		local python_version_raw
+		python_version_raw=$(python3 -V 2>&1)
+		if [[ "${python_version_raw}" =~ ([0-9]+)\.([0-9]+) ]]; then
+			python_major="${BASH_REMATCH[1]}"
+			python_minor="${BASH_REMATCH[2]}"
+		else
+			python_major=0
+			python_minor=0
+		fi
+		if [[ "${python_major}" -lt 3 ]] || { [[ "${python_major}" -eq 3 ]] && [[ "${python_minor}" -lt 6 ]]; }; then
 			echo
 			language_strings "${language}" "wpa3_cookie_guzzler_2" "red"
 			language_strings "${language}" 115 "read"
@@ -441,19 +461,19 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 	arr["CHINESE","wpa3_cookie_guzzler_1"]="\${pending_of_translation} WPA3 Cookie Guzzler 攻击会持续运行以尝试让路由器过载。 (即DoS)"
 	wpa3_hints+=("wpa3_cookie_guzzler_1")
 
-	arr["ENGLISH","wpa3_cookie_guzzler_2"]="This attack requires to have python3.1+ installed on your system"
-	arr["SPANISH","wpa3_cookie_guzzler_2"]="Este ataque requiere tener python3.1+ instalado en el sistema"
-	arr["FRENCH","wpa3_cookie_guzzler_2"]="Cette attaque a besoin de python3.1+ installé sur le système"
-	arr["CATALAN","wpa3_cookie_guzzler_2"]="Aquest atac requereix tenir python3.1+ instal·lat al sistema"
-	arr["PORTUGUESE","wpa3_cookie_guzzler_2"]="Este ataque necessita do python3.1+ instalado no sistema"
-	arr["RUSSIAN","wpa3_cookie_guzzler_2"]="Для этой атаки необходимо, чтобы в системе был установлен python3.1+"
-	arr["GREEK","wpa3_cookie_guzzler_2"]="Αυτή η επίθεση απαιτεί την εγκατάσταση python3.1+ στο σύστημά σας"
-	arr["ITALIAN","wpa3_cookie_guzzler_2"]="Questo attacco richiede che python3.1+ sia installato nel sistema"
-	arr["POLISH","wpa3_cookie_guzzler_2"]="Ten atak wymaga zainstalowania w systemie python3.1+"
-	arr["GERMAN","wpa3_cookie_guzzler_2"]="Für diesen Angriff muss python3.1+ auf dem System installiert sein"
-	arr["TURKISH","wpa3_cookie_guzzler_2"]="Bu saldırı için sisteminizde, python3.1+'ün kurulu olmasını gereklidir"
-	arr["ARABIC","wpa3_cookie_guzzler_2"]="على النظام python3.1+ يتطلب هذا الهجوم تثبيت"
-	arr["CHINESE","wpa3_cookie_guzzler_2"]="此攻击需要在您的系统上安装 python3.1+"
+	arr["ENGLISH","wpa3_cookie_guzzler_2"]="This attack requires to have python3.6+ installed on your system"
+	arr["SPANISH","wpa3_cookie_guzzler_2"]="Este ataque requiere tener python3.6+ instalado en el sistema"
+	arr["FRENCH","wpa3_cookie_guzzler_2"]="Cette attaque a besoin de python3.6+ installé sur le système"
+	arr["CATALAN","wpa3_cookie_guzzler_2"]="Aquest atac requereix tenir python3.6+ instal·lat al sistema"
+	arr["PORTUGUESE","wpa3_cookie_guzzler_2"]="Este ataque necessita do python3.6+ instalado no sistema"
+	arr["RUSSIAN","wpa3_cookie_guzzler_2"]="Для этой атаки необходимо, чтобы в системе был установлен python3.6+"
+	arr["GREEK","wpa3_cookie_guzzler_2"]="Αυτή η επίθεση απαιτεί την εγκατάσταση python3.6+ στο σύστημά σας"
+	arr["ITALIAN","wpa3_cookie_guzzler_2"]="Questo attacco richiede che python3.6+ sia installato nel sistema"
+	arr["POLISH","wpa3_cookie_guzzler_2"]="Ten atak wymaga zainstalowania w systemie python3.6+"
+	arr["GERMAN","wpa3_cookie_guzzler_2"]="Für diesen Angriff muss python3.6+ auf dem System installiert sein"
+	arr["TURKISH","wpa3_cookie_guzzler_2"]="Bu saldırı için sisteminizde, python3.6+'ün kurulu olmasını gereklidir"
+	arr["ARABIC","wpa3_cookie_guzzler_2"]="على النظام python3.6+ يتطلب هذا الهجوم تثبيت"
+	arr["CHINESE","wpa3_cookie_guzzler_2"]="此攻击需要在您的系统上安装 python3.6+"
 
 	arr["ENGLISH","wpa3_cookie_guzzler_3"]="The python3 script required as part of this plugin to run this attack is missing. Please make sure that the file \"\${normal_color}wpa3_cookie_guzzler.py\${red_color}\" exists and that it is in the plugins dir next to the \"\${normal_color}wpa3_cookie_guzzler.sh\${red_color}\" file"
 	arr["SPANISH","wpa3_cookie_guzzler_3"]="El script de python3 requerido como parte de este plugin para ejecutar este ataque no se encuentra. Por favor, asegúrate de que existe el fichero \"\${normal_color}wpa3_cookie_guzzler.py\${red_color}\" y que está en la carpeta de plugins junto al fichero \"\${normal_color}wpa3_cookie_guzzler.sh\${red_color}\""

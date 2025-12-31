@@ -39,7 +39,7 @@ It is based on the [Wacker] script. Credits to the authors: [https://github.com/
 
 > An airgeddon plugin to perform a WPA3 Cookie Guzzler DoS attack.
 
-![](imgs/cookie_guzzler_logo.png)
+![Cookie Guzzler logo](imgs/cookie_guzzler_logo.png)
 
 This plugin for [airgeddon] tool combines a Bash wrapper with a Python helper to run the Cookie Guzzler procedure from the WPA3 attacks menu on `airgeddon>=11.61`. The attack can leverage a secondary adapter to capture SAE scalar and finite field values automatically or allows entering them manually to reuse previous captures. Once armed, it continuously injects crafted frames to overwhelm the target AP causing Denial of Service (DoS).
 

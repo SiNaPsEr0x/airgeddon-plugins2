@@ -29,6 +29,8 @@ Plugins system feature is available from `airgeddon>=10.0`. More information abo
 
 > An airgeddon plugin to perform an online dictionary attack over WPA3 wireless networks.
 
+![WPA3 Online Dictionary logo](imgs/wpa3_online_attack_logo.png)
+
 This plugin is for [airgeddon] tool. Using a modified and pre-compiled wpa_supplicant binary, the system is able to distinguish AP responses in order to validate if the attack was successful or not. `airgeddon` is adding a new menu option for this online dictionary attack over WPA3 wireless networks. It works for `airgeddon>=11.30`.
 
 This plugin requires `python>=3.6` to be available on the system.
@@ -39,7 +41,7 @@ It is based on the [Wacker] script. Credits to the authors: [https://github.com/
 
 > An airgeddon plugin to perform a WPA3 Cookie Guzzler DoS attack.
 
-![Cookie Guzzler logo](imgs/cookie_guzzler_logo.png)
+![WPA3 Cookie Guzzler logo](imgs/cookie_guzzler_logo.png)
 
 This plugin for [airgeddon] tool combines a Bash wrapper with a Python helper to run the Cookie Guzzler procedure from the WPA3 attacks menu on `airgeddon>=11.61`. The attack can leverage a secondary adapter to capture SAE scalar and finite field values automatically or allows entering them manually to reuse previous captures. Once armed, it continuously injects crafted frames to overwhelm the target AP causing Denial of Service (DoS).
 

@@ -405,7 +405,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 	if [ "${arr['ENGLISH',756]}" = "6.  WPA3 attack (use a plugin here)" ]; then
 		arr["ENGLISH",756]="6.  WPA3 Cookie Guzzler attack"
 		arr["SPANISH",756]="6.  Ataque Cookie Guzzler WPA3"
-		arr["FRENCH",756]="\${pending_of_translation} 6.  Attaque WPA3 Cookie Guzzler"
+		arr["FRENCH",756]="6.  Attaque WPA3 Cookie Guzzler"
 		arr["CATALAN",756]="6.  Atac WPA3 Cookie Guzzler"
 		arr["PORTUGUESE",756]="6.  Ataque WPA3 Cookie Guzzler"
 		arr["RUSSIAN",756]="\${pending_of_translation} 6.  Атака WPA3 Cookie Guzzler"
@@ -419,7 +419,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 	elif [ "${arr['ENGLISH',757]}" = "7.  WPA3 attack (use a plugin here)" ]; then
 		arr["ENGLISH",757]="7.  WPA3 Cookie Guzzler attack"
 		arr["SPANISH",757]="7.  Ataque Cookie Guzzler WPA3"
-		arr["FRENCH",757]="\${pending_of_translation} 7.  Attaque WPA3 Cookie Guzzler"
+		arr["FRENCH",757]="7.  Attaque WPA3 Cookie Guzzler"
 		arr["CATALAN",757]="7.  Atac WPA3 Cookie Guzzler"
 		arr["PORTUGUESE",757]="7.  Ataque WPA3 Cookie Guzzler"
 		arr["RUSSIAN",757]="\${pending_of_translation} 7.  Атака WPA3 Cookie Guzzler"
@@ -433,7 +433,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 attack (use a plugin here)" ]; then
 		arr["ENGLISH",812]="8.  WPA3 Cookie Guzzler attack"
 		arr["SPANISH",812]="8.  Ataque Cookie Guzzler WPA3"
-		arr["FRENCH",812]="\${pending_of_translation} 8.  Attaque WPA3 Cookie Guzzler"
+		arr["FRENCH",812]="8.  Attaque WPA3 Cookie Guzzler"
 		arr["CATALAN",812]="8.  Atac WPA3 Cookie Guzzler"
 		arr["PORTUGUESE",812]="8.  Ataque WPA3 Cookie Guzzler"
 		arr["RUSSIAN",812]="\${pending_of_translation} 8.  Атака WPA3 Cookie Guzzler"
@@ -448,7 +448,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_1"]="WPA3 Cookie Guzzler attack runs forever aiming to overload the router (DoS)"
 	arr["SPANISH","wpa3_cookie_guzzler_1"]="El ataque WPA3 Cookie Guzzler se ejecuta indefinidamente con el objetivo de sobrecargar el router (DoS)"
-	arr["FRENCH","wpa3_cookie_guzzler_1"]="\${pending_of_translation} L’attaque WPA3 Cookie Guzzler s’exécute indéfiniment dans le but de surcharger le routeur (DoS)"
+	arr["FRENCH","wpa3_cookie_guzzler_1"]="\L’attaque WPA3 Cookie Guzzler s’exécute indéfiniment au but de surcharger le router (DoS)"
 	arr["CATALAN","wpa3_cookie_guzzler_1"]="L’atac WPA3 Cookie Guzzler s’executa indefinidament amb l’objectiu de sobrecarregar el router (DoS)"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_1"]="O ataque WPA3 Cookie Guzzler executa indefinidamente com o objetivo de sobrecarregar o roteador (DoS)"
 	arr["RUSSIAN","wpa3_cookie_guzzler_1"]="\${pending_of_translation} Атака WPA3 Cookie Guzzler работает бесконечно, стремясь перегрузить роутер (DoS)"
@@ -491,7 +491,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_4"]="To carry out this attack it is necessary to have \${normal_color}tshark\${red_color} installed and you do not have it at this moment. Please install it and try again"
 	arr["SPANISH","wpa3_cookie_guzzler_4"]="Para llevar a cabo este ataque es necesario tener instalado \${normal_color}tshark\${red_color} y tú no lo tienes en este momento. Por favor, instálalo y vuelve a intentarlo"
-	arr["FRENCH","wpa3_cookie_guzzler_4"]="\${pending_of_translation} Pour mener cette attaque, il est nécessaire d’avoir \${normal_color}tshark\${red_color} installé et tu ne l’as pas pour le moment. Merci de l’installer et de réessayer"
+	arr["FRENCH","wpa3_cookie_guzzler_4"]="Pour faire cette attaque, il est nécessaire d’avoir \${normal_color}tshark\${red_color} installé et tu ne l’as pas en ce moment. Merci de l’installer et de réessayer"
 	arr["CATALAN","wpa3_cookie_guzzler_4"]="Per dur a terme aquest atac cal tenir \${normal_color}tshark\${red_color} instal·lat i ara mateix no el tens. Si us plau, instal·la’l i torna-ho a provar"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_4"]="Para realizar este ataque, é necessário ter o \${normal_color}tshark\${red_color} instalado e você não o tem no momento. Por favor, instale-o e tente novamente"
 	arr["RUSSIAN","wpa3_cookie_guzzler_4"]="\${pending_of_translation} Для выполнения этой атаки необходимо, чтобы \${normal_color}tshark\${red_color} был установлен, а в данный момент он у тебя отсутствует. Пожалуйста, установи его и попробуй снова"
@@ -505,7 +505,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_5"]="To carry out this attack it is necessary to have \${normal_color}wpa_supplicant\${red_color} installed and you do not have it at this moment. Please install it and try again"
 	arr["SPANISH","wpa3_cookie_guzzler_5"]="Para llevar a cabo este ataque es necesario tener instalado \${normal_color}wpa_supplicant\${red_color} y tú no lo tienes en este momento. Por favor, instálalo y vuelve a intentarlo"
-	arr["FRENCH","wpa3_cookie_guzzler_5"]="\${pending_of_translation} Pour mener cette attaque, il est nécessaire d’avoir \${normal_color}wpa_supplicant\${red_color} installé et tu ne l’as pas pour le moment. Merci de l’installer et de réessayer"
+	arr["FRENCH","wpa3_cookie_guzzler_5"]="Pour faire cette attaque, il est nécessaire d’avoir \${normal_color}wpa_supplicant\${red_color} installé et tu ne l’as pas en ce moment. Merci de l’installer et de réessayer"
 	arr["CATALAN","wpa3_cookie_guzzler_5"]="Per dur a terme aquest atac cal tenir \${normal_color}wpa_supplicant\${red_color} instal·lat i ara mateix no el tens. Si us plau, instal·la’l i torna-ho a provar"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_5"]="Para realizar este ataque, é necessário ter o \${normal_color}wpa_supplicant\${red_color} instalado e você não o tem no momento. Por favor, instale-o e tente novamente"
 	arr["RUSSIAN","wpa3_cookie_guzzler_5"]="\${pending_of_translation} Для выполнения этой атаки необходимо, чтобы \${normal_color}wpa_supplicant\${red_color} был установлен, а в данный момент он у тебя отсутствует. Пожалуйста, установи его и попробуй снова"
@@ -519,7 +519,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_6"]="\${blue_color}To carry out this attack, it is necessary to have certain data from a WPA3 SAE handshake captured from a failed authentication (Scalar and Finite Field Element). If you already have this data, you can enter it manually. If not, it will be captured and two wireless adapters will be required for this. \${green_color}Do you already have this data and want to enter it manually? \${normal_color}\${visual_choice}"
 	arr["SPANISH","wpa3_cookie_guzzler_6"]="\${blue_color}Para llevar a cabo este ataque, es necesario tener ciertos datos de un handshake SAE de WPA3 capturados de una autenticación fallida (Scalar y Finite Field Element). Si ya dispones de estos datos, podrás introducirlos manualmente. Si no, se procederá a su captura y para ello harán falta dos adaptadores inalámbricos. \${green_color}¿Dispones ya de estos datos y quieres introducirlos manualmente? \${normal_color}\${visual_choice}"
-	arr["FRENCH","wpa3_cookie_guzzler_6"]="\${pending_of_translation} \${blue_color}Pour mener cette attaque, il est nécessaire de disposer de certaines données d’un handshake SAE WPA3 capturées à partir d’une authentification échouée (Scalar et Finite Field Element). Si tu disposes déjà de ces données, tu pourras les saisir manuellement. Sinon, elles seront capturées et deux adaptateurs sans fil seront nécessaires pour cela. \${green_color}Disposes-tu déjà de ces données et souhaites-tu les saisir manuellement? \${normal_color}\${visual_choice}"
+	arr["FRENCH","wpa3_cookie_guzzler_6"]="\${blue_color}Pour mener cette attaque, il est nécessaire de disposer de certaines données d’un handshake SAE WPA3 capturées à partir d’une authentification échouée (Scalar et Finite Field Element). Si tu as déjà ces données, tu pourras les saisir manuellement. Si non, elles seront capturées et deux adaptateurs sans fil seront nécessaires pour cela. \${green_color}Disposes-tu déjà de ces données et souhaites-tu les saisir manuellement? \${normal_color}\${visual_choice}"
 	arr["CATALAN","wpa3_cookie_guzzler_6"]="\${blue_color}Per dur a terme aquest atac, cal disposar de certes dades d’un handshake SAE de WPA3 capturades a partir d’una autenticació fallida (Scalar i Finite Field Element). Si ja disposes d’aquestes dades, podràs introduir-les manualment. Si no, es procedirà a la seva captura i per a això caldran dos adaptadors sense fil. \${green_color}¿Ja disposes d’aquestes dades i vols introduir-les manualment? \${normal_color}\${visual_choice}"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_6"]="\${blue_color}Para realizar este ataque, é necessário ter certos dados de um handshake WPA3 SAE capturados de uma falha de autenticação (Scalar e Finite Field Element). Se você já possui esses dados, pode inseri-los manualmente. Caso contrário, eles serão capturados, para isso serão necessários dois adaptadores sem fio. \${green_color}Você já possui esses dados e deseja inseri-los manualmente? \${normal_color}\${visual_choice}"
 	arr["RUSSIAN","wpa3_cookie_guzzler_6"]="\${pending_of_translation} \${blue_color}Для выполнения этой атаки необходимо иметь некоторые данные из handshake SAE WPA3, полученные при неудачной аутентификации (Scalar и Finite Field Element). Если у тебя уже есть эти данные, ты можешь ввести их вручную. В противном случае они будут захвачены, и для этого потребуются два беспроводных адаптера. \${green_color}У тебя уже есть эти данные и ты хочешь ввести их вручную? \${normal_color}\${visual_choice}"
@@ -533,7 +533,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_7"]="Enter the hexadecimal value of Scalar (64 characters length):"
 	arr["SPANISH","wpa3_cookie_guzzler_7"]="Introduce el valor hexadecimal de Scalar (longitud 64 caracteres):"
-	arr["FRENCH","wpa3_cookie_guzzler_7"]="\${pending_of_translation} Entre la valeur hexadécimale de Scalar (longueur 64 caractères):"
+	arr["FRENCH","wpa3_cookie_guzzler_7"]="Entrez la valeur hexadécimale de Scalar (longueur 64 caractères):"
 	arr["CATALAN","wpa3_cookie_guzzler_7"]="Introdueix el valor hexadecimal de Scalar (longitud 64 caràcters):"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_7"]="Digite o valor hexadecimal de Scalar (comprimento de 64 caracteres):"
 	arr["RUSSIAN","wpa3_cookie_guzzler_7"]="\${pending_of_translation} Введи шестнадцатеричное значение Scalar (длина 64 символа):"
@@ -547,7 +547,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_8"]="Enter the hexadecimal value of Finite Field Element (128 characters length):"
 	arr["SPANISH","wpa3_cookie_guzzler_8"]="Introduce el valor hexadecimal de Finite Field Element (longitud 128 caracteres):"
-	arr["FRENCH","wpa3_cookie_guzzler_8"]="\${pending_of_translation} Entre la valeur hexadécimale de Finite Field Element (longueur 128 caractères):"
+	arr["FRENCH","wpa3_cookie_guzzler_8"]="Entrez la valeur hexadécimale de Finite Field Element (longueur 128 caractères):"
 	arr["CATALAN","wpa3_cookie_guzzler_8"]="Introdueix el valor hexadecimal de Finite Field Element (longitud 128 caràcters):"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_8"]="Digite o valor hexadecimal de Finite Field Element (comprimento de 128 caracteres):"
 	arr["RUSSIAN","wpa3_cookie_guzzler_8"]="\${pending_of_translation} Введи шестнадцатеричное значение Finite Field Element (длина 128 символов):"
@@ -561,7 +561,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_9"]="Scalar value set: \${normal_color}\${scalar}"
 	arr["SPANISH","wpa3_cookie_guzzler_9"]="Valor Scalar establecido: \${normal_color}\${scalar}"
-	arr["FRENCH","wpa3_cookie_guzzler_9"]="\${pending_of_translation} Valeur Scalar définie: \${normal_color}\${scalar}"
+	arr["FRENCH","wpa3_cookie_guzzler_9"]="Valeur Scalar définie: \${normal_color}\${scalar}"
 	arr["CATALAN","wpa3_cookie_guzzler_9"]="Valor Scalar establert: \${normal_color}\${scalar}"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_9"]="Valor Scalar definido: \${normal_color}\${scalar}"
 	arr["RUSSIAN","wpa3_cookie_guzzler_9"]="\${pending_of_translation} Значение Scalar установлено: \${normal_color}\${scalar}"
@@ -575,7 +575,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_10"]="Finite Field Element value set: \${normal_color}\${finite_field_element}"
 	arr["SPANISH","wpa3_cookie_guzzler_10"]="Valor Finite Field Element establecido: \${normal_color}\${finite_field_element}"
-	arr["FRENCH","wpa3_cookie_guzzler_10"]="\${pending_of_translation} Valeur Finite Field Element définie: \${normal_color}\${finite_field_element}"
+	arr["FRENCH","wpa3_cookie_guzzler_10"]="Valeur Finite Field Element définie: \${normal_color}\${finite_field_element}"
 	arr["CATALAN","wpa3_cookie_guzzler_10"]="Valor Finite Field Element establert: \${normal_color}\${finite_field_element}"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_10"]="Valor Finite Field Element definido: \${normal_color}\${finite_field_element}"
 	arr["RUSSIAN","wpa3_cookie_guzzler_10"]="\${pending_of_translation} Значение Finite Field Element установлено: \${normal_color}\${finite_field_element}"
@@ -589,7 +589,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_11"]="Two windows will be opened, one to capture the required data and another to force a failed authentication. Do not touch anything during the process"
 	arr["SPANISH","wpa3_cookie_guzzler_11"]="Se abrirán dos ventanas, una para capturar el dato necesario y otra para forzar una autenticación fallida. No toques nada durante el proceso"
-	arr["FRENCH","wpa3_cookie_guzzler_11"]="\${pending_of_translation} Deux fenêtres vont s’ouvrir, une pour capturer la donnée nécessaire et une autre pour forcer une authentification échouée. Ne touche à rien pendant le processus"
+	arr["FRENCH","wpa3_cookie_guzzler_11"]="Deux fenêtres vont s’ouvrir, une pour capturer la donnée nécessaire et une autre pour forcer une authentification échouée. Ne touche rien pendant le processus"
 	arr["CATALAN","wpa3_cookie_guzzler_11"]="S’obriran dues finestres, una per capturar la dada necessària i una altra per forçar una autenticació fallida. No toquis res durant el procés"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_11"]="Duas janelas serão abertas, uma para capturar os dados necessários e outra para forçar uma falha de autenticação. Não toque em nada durante o processo"
 	arr["RUSSIAN","wpa3_cookie_guzzler_11"]="\${pending_of_translation} Будут открыты два окна, одно для захвата необходимых данных и другое для принудительного сбоя аутентификации. Ничего не трогай во время процесса"
@@ -603,7 +603,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_12"]="Failed to capture the SAE data (Scalar and Finite Field Element). Please try again"
 	arr["SPANISH","wpa3_cookie_guzzler_12"]="No se pudieron capturar los datos SAE (Scalar y Finite Field Element). Inténtalo de nuevo"
-	arr["FRENCH","wpa3_cookie_guzzler_12"]="\${pending_of_translation} Échec de la capture des données SAE (Scalar et Finite Field Element). Réessaie"
+	arr["FRENCH","wpa3_cookie_guzzler_12"]="Échec de la capture des données SAE (Scalar et Finite Field Element). Réessaie"
 	arr["CATALAN","wpa3_cookie_guzzler_12"]="No s’ha pogut capturar la dada SAE (Scalar i Finite Field Element). Torna-ho a provar"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_12"]="Falha ao capturar os dados SAE (Scalar e Finite Field Element). Tente novamente"
 	arr["RUSSIAN","wpa3_cookie_guzzler_12"]="\${pending_of_translation} Не удалось захватить данные SAE (Scalar и Finite Field Element). Попробуй снова"
@@ -617,7 +617,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_13"]="The SAE values of Scalar and Finite Field Element have been successfully captured. Write them down to avoid having to capture them again in future occasions. Remember that these values are valid exclusively for this target. For another target (even with the same ESSID) on another band or another BSSID, they would not work"
 	arr["SPANISH","wpa3_cookie_guzzler_13"]="Los valores SAE de Scalar y Finite Field Element se han capturado con éxito. Anótalos para poder evitar tener que capturarlos de nuevo en futuras ocasiones. Recuerda que estos valores son válidos exclusivamente para este objetivo. Para otro objetivo (incluso con el mismo ESSID) en otra banda u otro BSSID, no servirían"
-	arr["FRENCH","wpa3_cookie_guzzler_13"]="\${pending_of_translation} Les valeurs SAE de Scalar et Finite Field Element ont été capturées avec succès. Note-les pour éviter de devoir les capturer à nouveau à l’avenir. Souviens-toi que ces valeurs sont valables exclusivement pour cette cible. Pour une autre cible (même avec le même ESSID) sur une autre bande ou un autre BSSID, elles ne fonctionneraient pas"
+	arr["FRENCH","wpa3_cookie_guzzler_13"]="Les valeurs SAE de Scalar et Finite Field Element ont été capturées avec succès. Note-les pour éviter de devoir les capturer à nouveau à l’avenir. Souviens-toi que ces valeurs sont valables exclusivement pour cette cible. Pour une autre cible (même avec le même ESSID) sur une autre bande ou un autre BSSID, elles ne fonctionneraient pas"
 	arr["CATALAN","wpa3_cookie_guzzler_13"]="Els valors SAE de Scalar i Finite Field Element s’han capturat amb èxit. Anota’ls per evitar haver-los de capturar de nou en futures ocasions. Recorda que aquests valors són vàlids exclusivament per a aquest objectiu. Per a un altre objectiu (fins i tot amb el mateix ESSID) en una altra banda o un altre BSSID, no servirien"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_13"]="Os valores SAE de Scalar e Finite Field Element foram capturados com sucesso. Anote-os para evitar ter que capturá-los novamente em futuras ocasiões. Lembre-se que estes valores são válidos exclusivamente para este alvo. Para outro alvo (mesmo com o mesmo ESSID) em outra banda ou outro BSSID, não funcionariam"
 	arr["RUSSIAN","wpa3_cookie_guzzler_13"]="\${pending_of_translation} Значения SAE для Scalar и Finite Field Element были успешно захвачены. Запиши их, чтобы избежать повторного захвата в будущем. Помни, что эти значения действительны исключительно для этой цели. Для другой цели (даже с тем же ESSID) на другом диапазоне или с другим BSSID они не подойдут"
@@ -631,7 +631,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 
 	arr["ENGLISH","wpa3_cookie_guzzler_14"]="The secondary adapter must be in managed mode to perform this attack. The change will be done automatically"
 	arr["SPANISH","wpa3_cookie_guzzler_14"]="El adaptador secundario ha de estar en modo managed para poder realizar este ataque. Se realizará el cambio automáticamente"
-	arr["FRENCH","wpa3_cookie_guzzler_14"]="\${pending_of_translation} L’adaptateur secondaire doit être en mode managed pour pouvoir réaliser cette attaque. Le changement sera effectué automatiquement"
+	arr["FRENCH","wpa3_cookie_guzzler_14"]="L’adaptateur secondaire doit être en mode managed pour pouvoir réaliser cette attaque. Le changement sera effectué automatiquement"
 	arr["CATALAN","wpa3_cookie_guzzler_14"]="L’adaptador secundari ha d’estar en mode managed per poder realitzar aquest atac. El canvi es farà automàticament"
 	arr["PORTUGUESE","wpa3_cookie_guzzler_14"]="O adaptador secundário deve estar em modo managed para realizar este ataque. A alteração será feita automaticamente"
 	arr["RUSSIAN","wpa3_cookie_guzzler_14"]="\${pending_of_translation} Вторичный адаптер должен быть в режиме managed для выполнения этой атаки. Изменение будет выполнено автоматически"

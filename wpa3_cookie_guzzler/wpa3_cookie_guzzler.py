@@ -13,7 +13,7 @@ def language_strings():
 	arr = {
 		("ENGLISH", 0): "Initializing Cookie Guzzler attack...",
 		("SPANISH", 0): "Inicializando el ataque Cookie Guzzler...",
-		("FRENCH", 0): f"{pot}Initialisation de l'attaque Cookie Guzzler...",
+		("FRENCH", 0): "Initialisation de l'attaque Cookie Guzzler...",
 		("CATALAN", 0): "Inicialitzant l'atac Cookie Guzzler...",
 		("PORTUGUESE", 0): "Iniciando o ataque Cookie Guzzler...",
 		("RUSSIAN", 0): f"{pot}Инициализация атаки Cookie Guzzler...",
@@ -27,7 +27,7 @@ def language_strings():
 
 		("ENGLISH", 1): "Launching WPA3 Cookie Guzzler attack",
 		("SPANISH", 1): "Lanzando ataque Cookie Guzzler WPA3",
-		("FRENCH", 1): f"{pot}Lancement de l'attaque WPA3 Cookie Guzzler",
+		("FRENCH", 1): "Lancement de l'attaque WPA3 Cookie Guzzler",
 		("CATALAN", 1): "Llançant l'atac WPA3 Cookie Guzzler",
 		("PORTUGUESE", 1): "Iniciando o ataque WPA3 Cookie Guzzler",
 		("RUSSIAN", 1): f"{pot}Запуск атаки WPA3 Cookie Guzzler",
@@ -41,7 +41,7 @@ def language_strings():
 
 		("ENGLISH", 2): "Target: {bssid} on channel {channel}",
 		("SPANISH", 2): "Objetivo: {bssid} en el canal {channel}",
-		("FRENCH", 2): f"{pot}Cible : {{bssid}} sur le canal {{channel}}",
+		("FRENCH", 2): "Cible : {bssid} sur le canal {channel}",
 		("CATALAN", 2): "Objectiu: {bssid} al canal {channel}",
 		("PORTUGUESE", 2): "Alvo: {bssid} no canal {channel}",
 		("RUSSIAN", 2): f"{pot}Цель: {{bssid}} на канале {{channel}}",
@@ -55,7 +55,7 @@ def language_strings():
 
 		("ENGLISH", 3): "Starting Cookie Guzzler flood on {interface}...",
 		("SPANISH", 3): "Iniciando flood Cookie Guzzler en {interface}...",
-		("FRENCH", 3): f"{pot}Démarrage du flood Cookie Guzzler sur {{interface}}...",
+		("FRENCH", 3): "Démarrage du flood Cookie Guzzler sur {interface}...",
 		("CATALAN", 3): "Iniciant flood Cookie Guzzler a {interface}...",
 		("PORTUGUESE", 3): "Iniciando flood Cookie Guzzler em {interface}...",
 		("RUSSIAN", 3): f"{pot}Запуск флуд атаки Cookie Guzzler на {{interface}}...",
@@ -69,7 +69,7 @@ def language_strings():
 
 		("ENGLISH", 4): "Sent {count} frames...",
 		("SPANISH", 4): "Enviados {count} frames...",
-		("FRENCH", 4): f"{pot}{{count}} trames envoyées...",
+		("FRENCH", 4): "{count} trames envoyées...",
 		("CATALAN", 4): "Enviats {count} frames...",
 		("PORTUGUESE", 4): "{count} frames enviados...",
 		("RUSSIAN", 4): f"{pot}Отправлено кадров: {{count}}...",

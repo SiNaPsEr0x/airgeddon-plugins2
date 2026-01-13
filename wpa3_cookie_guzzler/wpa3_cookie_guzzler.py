@@ -23,7 +23,7 @@ def language_strings():
 		("GERMAN", 0): "Initialisierung des Cookie-Guzzler-Angriffs...",
 		("TURKISH", 0): f"{pot}Cookie Guzzler saldırısı başlatılıyor...",
 		("ARABIC", 0): f"{pot}بدء هجوم Cookie Guzzler...",
-		("CHINESE", 0): f"{pot}初始化 Cookie Guzzler 攻击...",
+		("CHINESE", 0): "正在初始化 Cookie Guzzler 攻击...",
 
 		("ENGLISH", 1): "Launching WPA3 Cookie Guzzler attack",
 		("SPANISH", 1): "Lanzando ataque Cookie Guzzler WPA3",
@@ -37,7 +37,7 @@ def language_strings():
 		("GERMAN", 1): "Starte WPA3 Cookie-Guzzler-Angriff",
 		("TURKISH", 1): f"{pot}WPA3 Cookie Guzzler saldırısı başlatılıyor",
 		("ARABIC", 1): f"{pot}بدء هجوم WPA3 Cookie Guzzler",
-		("CHINESE", 1): f"{pot}启动 WPA3 Cookie Guzzler 攻击",
+		("CHINESE", 1): "启动 WPA3 Cookie Guzzler 攻击",
 
 		("ENGLISH", 2): "Target: {bssid} on channel {channel}",
 		("SPANISH", 2): "Objetivo: {bssid} en el canal {channel}",
@@ -51,7 +51,7 @@ def language_strings():
 		("GERMAN", 2): "Ziel: {bssid} auf Kanal {channel}",
 		("TURKISH", 2): f"{pot}Hedef: {{bssid}} kanal {{channel}}",
 		("ARABIC", 2): f"{pot}الهدف: {{bssid}} على القناة {{channel}}",
-		("CHINESE", 2): f"{pot}目标: {{bssid}} 在信道 {{channel}}",
+		("CHINESE", 2): "目标: {bssid} 在信道 {channel}",
 
 		("ENGLISH", 3): "Starting Cookie Guzzler flood on {interface}...",
 		("SPANISH", 3): "Iniciando flood Cookie Guzzler en {interface}...",
@@ -65,7 +65,7 @@ def language_strings():
 		("GERMAN", 3): "Starte Cookie Guzzler Flood auf {interface}...",
 		("TURKISH", 3): f"{pot}{{interface}} üzerinde Cookie Guzzler flood başlatılıyor...",
 		("ARABIC", 3): f"{pot}بدء فيضان Cookie Guzzler على {{interface}}...",
-		("CHINESE", 3): f"{pot}在 {{interface}} 上启动 Cookie Guzzler 洪流...",
+		("CHINESE", 3): "在 {interface} 上启动 Cookie Guzzler 攻击...",
 
 		("ENGLISH", 4): "Sent {count} frames...",
 		("SPANISH", 4): "Enviados {count} frames...",
@@ -79,7 +79,7 @@ def language_strings():
 		("GERMAN", 4): "{count} Frames gesendet...",
 		("TURKISH", 4): f"{pot}{{count}} çerçeve gönderildi...",
 		("ARABIC", 4): f"{pot}أُرسلت {{count}} إطارات...",
-		("CHINESE", 4): f"{pot}已发送 {{count}} 帧...",
+		("CHINESE", 4): "当前已发送 {count} 帧...",
 	}
 
 def get_message(language, key, **kwargs):

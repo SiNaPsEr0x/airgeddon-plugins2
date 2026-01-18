@@ -21,7 +21,7 @@ def language_strings():
 		("ITALIAN", 0): "Inizializzando l'attacco Cookie Guzzler...",
 		("POLISH", 0): "Inicjalizacja ataku Cookie Guzzler...",
 		("GERMAN", 0): "Initialisierung des Cookie-Guzzler-Angriffs...",
-		("TURKISH", 0): f"{pot}Cookie Guzzler saldırısı başlatılıyor...",
+		("TURKISH", 0): "Cookie Guzzler saldırısı hazırlanıyor...",
 		("ARABIC", 0): "...Cookie Guzzler بدء تهيئة هجوم",
 		("CHINESE", 0): "正在初始化 Cookie Guzzler 攻击...",
 
@@ -35,7 +35,7 @@ def language_strings():
 		("ITALIAN", 1): "Avviando l'attacco WPA3 Cookie Guzzler",
 		("POLISH", 1): "Uruchamianie ataku WPA3 Cookie Guzzler",
 		("GERMAN", 1): "Starte WPA3 Cookie-Guzzler-Angriff",
-		("TURKISH", 1): f"{pot}WPA3 Cookie Guzzler saldırısı başlatılıyor",
+		("TURKISH", 1): "WPA3 Cookie Guzzler saldırısı başlatılıyor",
 		("ARABIC", 1): "WPA3 Cookie Guzzler بدء هجوم",
 		("CHINESE", 1): "启动 WPA3 Cookie Guzzler 攻击",
 
@@ -49,7 +49,7 @@ def language_strings():
 		("ITALIAN", 2): "Obiettivo: {bssid} sul canale {channel}",
 		("POLISH", 2): "Cel: {bssid} na kanale {channel}",
 		("GERMAN", 2): "Ziel: {bssid} auf Kanal {channel}",
-		("TURKISH", 2): f"{pot}Hedef: {{bssid}} kanal {{channel}}",
+		("TURKISH", 2): "Hedef: {bssid} kanal {channel}",
 		("ARABIC", 2): "{channel} على القناة {bssid} :الهدف",
 		("CHINESE", 2): "目标: {bssid} 在信道 {channel}",
 
@@ -63,7 +63,7 @@ def language_strings():
 		("ITALIAN", 3): "Iniziando flood Cookie Guzzler su {interface}...",
 		("POLISH", 3): "Rozpoczynanie Cookie Guzzler flood na {interface}...",
 		("GERMAN", 3): "Starte Cookie Guzzler Flood auf {interface}...",
-		("TURKISH", 3): f"{pot}{{interface}} üzerinde Cookie Guzzler flood başlatılıyor...",
+		("TURKISH", 3): "{interface} üzerinde Cookie Guzzler flood başlatılıyor...",
 		("ARABIC", 3): "...{interface} على Cookie Guzzler بدء فيضان",
 		("CHINESE", 3): "在 {interface} 上启动 Cookie Guzzler 攻击...",
 
@@ -77,7 +77,7 @@ def language_strings():
 		("ITALIAN", 4): "Inviati {count} frame...",
 		("POLISH", 4): "Wysłano {count} ramek (frames)...",
 		("GERMAN", 4): "{count} Frames gesendet...",
-		("TURKISH", 4): f"{pot}{{count}} çerçeve gönderildi...",
+		("TURKISH", 4): "{count} çerçeve gönderildi...",
 		("ARABIC", 4): "...إطارات {count} أُرسلت",
 		("CHINESE", 4): "当前已发送 {count} 帧...",
 	}

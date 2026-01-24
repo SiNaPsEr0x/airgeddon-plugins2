@@ -386,7 +386,7 @@ function wpa3_cookie_guzzler_set_wpa_supplicant_config() {
 	{
 	echo -e "network={"
 	echo -e "\tssid=\"${essid}\""
-	echo -e "\tpsk=\"$(LC_ALL=C tr -dc 'A-Za-z0-9' < /dev/urandom | head -c $((8 + RANDOM % 5)))\""
+	echo -e "\tsae_password=\"$(LC_ALL=C tr -dc 'A-Za-z0-9' < /dev/urandom | head -c $((8 + RANDOM % 5)))\""
 	echo -e "\tkey_mgmt=SAE"
 	echo -e "\tieee80211w=1"
 	} >> "${tmpdir}cookie_guzzler_wpa_supplicant.conf"

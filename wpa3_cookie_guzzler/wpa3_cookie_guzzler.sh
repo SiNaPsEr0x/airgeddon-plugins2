@@ -238,11 +238,14 @@ function wpa3_scalar_finite_field_capture() {
 	rm -rf "${tmpdir}cookie_guzzler"* > /dev/null 2>&1
 	scalar=""
 	finite_field_element=""
+	cookie_guzzler_airodump_cmd="airodump-ng -c ${channel} -d ${bssid} -w ${tmpdir}cookie_guzzler ${interface}"
+	cookie_guzzler_wpa_supplicant_cmd="wpa_supplicant -Dnl80211 -i ${secondary_wifi_interface} -c ${tmpdir}cookie_guzzler_wpa_supplicant.conf -P ${tmpdir}cookie_guzzler_wpa_supplicant.pid"
+	trap "wpa3_cookie_guzzler_kill_windows" EXIT INT TERM
 
 	recalculate_windows_sizes
-	manage_output "+j -bg \"#000000\" -fg \"#FFFFFF\" -geometry ${g1_topright_window} -T \"Capturing Scalar and Finite Field\"" "airodump-ng -c ${channel} -d ${bssid} -w ${tmpdir}cookie_guzzler ${interface}" "Capturing Scalar and Finite Field"
+	manage_output "+j -bg \"#000000\" -fg \"#FFFFFF\" -geometry ${g1_topright_window} -T \"Capturing Scalar and Finite Field\"" "${cookie_guzzler_airodump_cmd}" "Capturing Scalar and Finite Field"
 	if [ "${AIRGEDDON_WINDOWS_HANDLING}" = "tmux" ]; then
-		get_tmux_process_id "airodump-ng -c ${channel} -d ${bssid} -w ${tmpdir}cookie_guzzler ${interface}"
+		get_tmux_process_id "${cookie_guzzler_airodump_cmd}"
 		cookie_guzzler_capture_pid="${global_process_pid}"
 		global_process_pid=""
 	else
@@ -250,12 +253,13 @@ function wpa3_scalar_finite_field_capture() {
 	fi
 
 	wpa3_cookie_guzzler_set_wpa_supplicant_config
+	cookie_guzzler_wpa_supplicant_pid_file="${tmpdir}cookie_guzzler_wpa_supplicant.pid"
 
 	sleep 2
 	recalculate_windows_sizes
-	manage_output "+j -bg \"#000000\" -fg \"#FF00FF\" -geometry ${g1_bottomright_window} -T \"Forcing Failed Auth\"" "wpa_supplicant -Dnl80211 -i ${secondary_wifi_interface} -c ${tmpdir}cookie_guzzler_wpa_supplicant.conf" "Forcing Failed Auth" "active"
+	manage_output "+j -bg \"#000000\" -fg \"#FF00FF\" -geometry ${g1_bottomright_window} -T \"Forcing Failed Auth\"" "${cookie_guzzler_wpa_supplicant_cmd}" "Forcing Failed Auth" "active"
 	if [ "${AIRGEDDON_WINDOWS_HANDLING}" = "tmux" ]; then
-		get_tmux_process_id "wpa_supplicant -Dnl80211 -i ${secondary_wifi_interface} -c ${tmpdir}cookie_guzzler_wpa_supplicant.conf"
+		get_tmux_process_id "${cookie_guzzler_wpa_supplicant_cmd}"
 		cookie_guzzler_wpa_supplicant_pid="${global_process_pid}"
 		global_process_pid=""
 	else
@@ -264,6 +268,7 @@ function wpa3_scalar_finite_field_capture() {
 
 	if wpa3_cookie_guzzler_failed_auth_check; then
 		wpa3_cookie_guzzler_kill_windows
+		trap - EXIT INT TERM
 		echo
 		language_strings "${language}" 162 "yellow"
 		echo
@@ -271,6 +276,7 @@ function wpa3_scalar_finite_field_capture() {
 		return 0
 	else
 		wpa3_cookie_guzzler_kill_windows
+		trap - EXIT INT TERM
 		echo
 		language_strings "${language}" "wpa3_cookie_guzzler_12" "red"
 		language_strings "${language}" 115 "read"
@@ -317,15 +323,29 @@ function wpa3_cookie_guzzler_kill_windows() {
 
 	debug_print
 
-	if [ -n "${cookie_guzzler_capture_pid}" ]; then
+	if [ -n "${cookie_guzzler_airodump_cmd}" ]; then
+		pkill -f "${cookie_guzzler_airodump_cmd}" > /dev/null 2>&1
+	elif [ -n "${cookie_guzzler_capture_pid}" ]; then
 		kill "${cookie_guzzler_capture_pid}" > /dev/null 2>&1
-		cookie_guzzler_capture_pid=""
+	fi
+	cookie_guzzler_capture_pid=""
+
+	if [ -n "${cookie_guzzler_wpa_supplicant_cmd}" ]; then
+		pkill -f "${cookie_guzzler_wpa_supplicant_cmd}" > /dev/null 2>&1
 	fi
 
-	if [ -n "${cookie_guzzler_wpa_supplicant_pid}" ]; then
-		kill "${cookie_guzzler_wpa_supplicant_pid}" > /dev/null 2>&1
-		cookie_guzzler_wpa_supplicant_pid=""
+	if [ -n "${cookie_guzzler_wpa_supplicant_pid_file}" ] && [ -f "${cookie_guzzler_wpa_supplicant_pid_file}" ]; then
+		cookie_guzzler_wpa_supplicant_real_pid=$(cat "${cookie_guzzler_wpa_supplicant_pid_file}" 2> /dev/null)
+		if [ -n "${cookie_guzzler_wpa_supplicant_real_pid}" ]; then
+			kill -9 "${cookie_guzzler_wpa_supplicant_real_pid}" > /dev/null 2>&1
+		fi
+		rm -f "${cookie_guzzler_wpa_supplicant_pid_file}" > /dev/null 2>&1
+	else
+		if [ -n "${cookie_guzzler_wpa_supplicant_pid}" ]; then
+			kill "${cookie_guzzler_wpa_supplicant_pid}" > /dev/null 2>&1
+		fi
 	fi
+	cookie_guzzler_wpa_supplicant_pid=""
 
 	if [ "${AIRGEDDON_WINDOWS_HANDLING}" = "tmux" ]; then
 		tmux kill-window -t "${session_name}:Capturing Scalar and Finite Field" > /dev/null 2>&1

@@ -23,8 +23,8 @@ A plugin can be a single `.sh` file or may contain a more complex structure. To 
     ├── wpa3_online_attack.py     \
     ├── wpa3_online_attack.sh      |
     └── wpa_supplicant_binaries    |
-        ├── wpa_supplicant_amd64   | <- all of these files including the dir containing binaries are another plugin
-        ├── wpa_supplicant_arm64   |
+        ├── wpa_supplicant_amd64   | <- all of these files including the dir containing binaries
+        ├── wpa_supplicant_arm64   |    are another plugin
         ├── wpa_supplicant_armel   |
         ├── wpa_supplicant_armhf   |
         └── wpa_supplicant_i386   /

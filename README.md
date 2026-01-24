@@ -13,14 +13,21 @@ A plugin can be a single `.sh` file or may contain a more complex structure. To 
 ├── known_pins.db
 ├── language_strings.sh
 └── plugins
-    ├── wpa3_online_attack.py
-    ├── wpa3_online_attack.sh
-    └── wpa_supplicant_binaries
-        ├── wpa_supplicant_amd64
-        ├── wpa_supplicant_arm64
-        ├── wpa_supplicant_armel
-        ├── wpa_supplicant_armhf
-        └── wpa_supplicant_i386
+    ├── allchars_captiveportal.sh <- this is one plugin
+    |
+    ├── realtek_chipset_fixer.sh <- this is another plugin
+    |
+    ├── wpa3_cookie_guzzler.py \ <- these two files are another plugin
+    ├── wpa3_cookie_guzzler.sh /
+    |
+    ├── wpa3_online_attack.py     \
+    ├── wpa3_online_attack.sh      |
+    └── wpa_supplicant_binaries    |
+        ├── wpa_supplicant_amd64   | <- all of these files including the dir containing binaries are another plugin
+        ├── wpa_supplicant_arm64   |
+        ├── wpa_supplicant_armel   |
+        ├── wpa_supplicant_armhf   |
+        └── wpa_supplicant_i386   /
 ```
 
 Plugins system feature is available from `airgeddon>=10.0`. More information about plugins at [Wiki] on original [airgeddon] GitHub repository.

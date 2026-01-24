@@ -15,6 +15,8 @@ plugin_minimum_ag_affected_version="11.61"
 plugin_maximum_ag_affected_version=""
 plugin_distros_supported=("*")
 
+declare -gA wpa3_cookie_guzzler_sae_scalar_finite_field_cache
+
 #Custom function. Execute WPA3 cookie guzzler attack
 function exec_wpa3_cookie_guzzler_attack() {
 
@@ -96,6 +98,46 @@ function python3_wpa3_cookie_guzzler_validation() {
 	return 0
 }
 
+#Custom function. Ask how to obtain SAE data (Scalar and Finite Field) and handle capture or manual input
+function wpa3_cookie_guzzler_prepare_sae_data() {
+
+	debug_print
+
+	echo
+	ask_yesno "wpa3_cookie_guzzler_6" "no"
+	if [ "${yesno}" = "y" ]; then
+		wpa3_cookie_guzzler_set_scalar_finite_field_element "scalar"
+		wpa3_cookie_guzzler_set_scalar_finite_field_element "finite_field_element"
+	else
+		if ! select_secondary_interface "secondary_interface"; then
+			return 1
+		fi
+
+		if ! wpa3_cookie_guzzler_validate_secondary_managed; then
+			return 1
+		fi
+
+		if [[ -n "${channel}" ]] && [[ "${channel}" -gt 14 ]]; then
+			if [ "${interfaces_band_info['secondary_wifi_interface','5Ghz_allowed']}" -eq 0 ]; then
+				echo
+				language_strings "${language}" 515 "red"
+				language_strings "${language}" 115 "read"
+				return 1
+			fi
+		fi
+
+		echo
+		language_strings "${language}" "wpa3_cookie_guzzler_11" "yellow"
+		language_strings "${language}" 4 "read"
+
+		if ! wpa3_scalar_finite_field_capture; then
+			return 1
+		fi
+	fi
+
+	return 0
+}
+
 #Custom function. Prepare WPA3 cookie guzzler attack
 function wpa3_cookie_guzzler_option() {
 
@@ -163,37 +205,23 @@ function wpa3_cookie_guzzler_option() {
 		return 1
 	fi
 
-	echo
-	ask_yesno "wpa3_cookie_guzzler_6" "no"
-	if [ "${yesno}" = "y" ]; then
-		wpa3_cookie_guzzler_set_scalar_finite_field_element "scalar"
-		wpa3_cookie_guzzler_set_scalar_finite_field_element "finite_field_element"
-	else
-		if ! select_secondary_interface "secondary_interface"; then
-			return 1
-		fi
-
-		if ! wpa3_cookie_guzzler_validate_secondary_managed; then
-			return 1
-		fi
-
-		if [[ -n "${channel}" ]] && [[ "${channel}" -gt 14 ]]; then
-			if [ "${interfaces_band_info['secondary_wifi_interface','5Ghz_allowed']}" -eq 0 ]; then
-				echo
-				language_strings "${language}" 515 "red"
-				language_strings "${language}" 115 "read"
+	if [[ -n "${wpa3_cookie_guzzler_sae_scalar_finite_field_cache[${bssid}]}" ]]; then
+		echo
+		ask_yesno "wpa3_cookie_guzzler_15" "yes"
+		if [ "${yesno}" = "y" ]; then
+			IFS="|" read -r scalar finite_field_element <<< "${wpa3_cookie_guzzler_sae_scalar_finite_field_cache[${bssid}]}"
+		else
+			if ! wpa3_cookie_guzzler_prepare_sae_data; then
 				return 1
 			fi
 		fi
-
-		echo
-		language_strings "${language}" "wpa3_cookie_guzzler_11" "yellow"
-		language_strings "${language}" 4 "read"
-
-		if ! wpa3_scalar_finite_field_capture; then
+	else
+		if ! wpa3_cookie_guzzler_prepare_sae_data; then
 			return 1
 		fi
 	fi
+
+	wpa3_cookie_guzzler_sae_scalar_finite_field_cache["${bssid}"]="${scalar}|${finite_field_element}"
 
 	echo
 	language_strings "${language}" "wpa3_cookie_guzzler_9" "blue"
@@ -659,4 +687,18 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 	arr["TURKISH","wpa3_cookie_guzzler_14"]="Bu saldırıyı gerçekleştirebilmek için ikincil adaptörün managed modunda olması gerekir. Değişiklik otomatik olarak yapılacaktır"
 	arr["ARABIC","wpa3_cookie_guzzler_14"]="لتنفيذ هذا الهجوم. سيتم إجراء التغيير تلقائياً managed يجب أن يكون المحول الثاني في وضع"
 	arr["CHINESE","wpa3_cookie_guzzler_14"]="要执行此攻击，辅助适配器必须处于 managed 模式。该更改将自动完成"
+
+	arr["ENGLISH","wpa3_cookie_guzzler_15"]="\${blue_color}Cached SAE values (Scalar and Finite Field) were found for this target. \${green_color}Do you want to reuse them? \${normal_color}\${visual_choice}"
+	arr["SPANISH","wpa3_cookie_guzzler_15"]="\${blue_color}Se encontraron valores SAE (Scalar y Finite Field) en caché para este objetivo. \${green_color}¿Quieres reutilizarlos? \${normal_color}\${visual_choice}"
+	arr["FRENCH","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Des valeurs SAE (Scalar et Finite Field) en cache ont été trouvées pour cette cible. \${green_color}Veux-tu les réutiliser? \${normal_color}\${visual_choice}"
+	arr["CATALAN","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}S'han trobat valors SAE (Scalar i Finite Field) en memòria cau per a aquest objectiu. \${green_color}Vols reutilitzar-los? \${normal_color}\${visual_choice}"
+	arr["PORTUGUESE","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Foram encontrados valores SAE (Scalar e Finite Field) em cache para este alvo. \${green_color}Queres reutilizá-los? \${normal_color}\${visual_choice}"
+	arr["RUSSIAN","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Для этой цели были найдены кэшированные значения SAE (Scalar и Finite Field). \${green_color}Хочешь использовать их повторно? \${normal_color}\${visual_choice}"
+	arr["GREEK","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Βρέθηκαν αποθηκευμένες τιμές SAE (Scalar και Finite Field) για αυτόν τον στόχο. \${green_color}Θέλεις να τις επαναχρησιμοποιήσεις; \${normal_color}\${visual_choice}"
+	arr["ITALIAN","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Sono stati trovati valori SAE (Scalar e Finite Field) in cache per questo obiettivo. \${green_color}Vuoi riutilizzarli? \${normal_color}\${visual_choice}"
+	arr["POLISH","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Znaleziono wartości SAE (Scalar i Finite Field) w pamięci podręcznej dla tego celu. \${green_color}Czy chcesz je ponownie wykorzystać? \${normal_color}\${visual_choice}"
+	arr["GERMAN","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Für dieses Ziel wurden zwischengespeicherte SAE-Werte (Scalar und Finite Field) gefunden. \${green_color}Möchtest du sie wiederverwenden? \${normal_color}\${visual_choice}"
+	arr["TURKISH","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Bu hedef için önbellekte SAE değerleri (Scalar ve Finite Field) bulundu. \${green_color}Yeniden kullanmak ister misin? \${normal_color}\${visual_choice}"
+	arr["ARABIC","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${visual_choice}\${normal_color} \${green_color}هل تريد إعادة استخدامها؟\${blue_color} .تم العثور على قيم SAE (Scalar و Finite Field) مخزنة مؤقتًا لهذا الهدف"
+	arr["CHINESE","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}已为该目标找到缓存的 SAE 值（Scalar 和 Finite Field）。\${green_color}是否要重新使用它们？ \${normal_color}\${visual_choice}"
 }

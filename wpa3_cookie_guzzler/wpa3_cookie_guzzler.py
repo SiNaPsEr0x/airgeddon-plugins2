@@ -8,7 +8,6 @@ GROUP_ID_BYTES = b"\x13\x00"
 arr = {}
 
 def language_strings():
-	pot = "\033[36mPoT\033[0m "
 	global arr
 	arr = {
 		("ENGLISH", 0): "Initializing Cookie Guzzler attack...",

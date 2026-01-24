@@ -240,7 +240,6 @@ function wpa3_scalar_finite_field_capture() {
 	finite_field_element=""
 	cookie_guzzler_airodump_cmd="airodump-ng -c ${channel} -d ${bssid} -w ${tmpdir}cookie_guzzler ${interface}"
 	cookie_guzzler_wpa_supplicant_cmd="wpa_supplicant -Dnl80211 -i ${secondary_wifi_interface} -c ${tmpdir}cookie_guzzler_wpa_supplicant.conf -P ${tmpdir}cookie_guzzler_wpa_supplicant.pid"
-	trap "wpa3_cookie_guzzler_kill_windows" EXIT INT TERM
 
 	recalculate_windows_sizes
 	manage_output "+j -bg \"#000000\" -fg \"#FFFFFF\" -geometry ${g1_topright_window} -T \"Capturing Scalar and Finite Field\"" "${cookie_guzzler_airodump_cmd}" "Capturing Scalar and Finite Field"
@@ -268,7 +267,6 @@ function wpa3_scalar_finite_field_capture() {
 
 	if wpa3_cookie_guzzler_failed_auth_check; then
 		wpa3_cookie_guzzler_kill_windows
-		trap - EXIT INT TERM
 		echo
 		language_strings "${language}" 162 "yellow"
 		echo
@@ -276,7 +274,6 @@ function wpa3_scalar_finite_field_capture() {
 		return 0
 	else
 		wpa3_cookie_guzzler_kill_windows
-		trap - EXIT INT TERM
 		echo
 		language_strings "${language}" "wpa3_cookie_guzzler_12" "red"
 		language_strings "${language}" 115 "read"

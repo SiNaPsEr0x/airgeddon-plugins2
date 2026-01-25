@@ -699,7 +699,7 @@ function wpa3_cookie_guzzler_prehook_hookable_for_languages() {
 	arr["ITALIAN","wpa3_cookie_guzzler_15"]="\${blue_color}Sono stati trovati valori SAE (Scalar e Finite Field) nella cache per questo obiettivo. \${green_color}Vuoi riutilizzarli? \${normal_color}\${visual_choice}"
 	arr["POLISH","wpa3_cookie_guzzler_15"]="\${blue_color}Znaleziono wartości SAE (Scalar i Finite Field) w pamięci podręcznej dla tego celu. \${green_color}Czy chcesz je ponownie wykorzystać? \${normal_color}\${visual_choice}"
 	arr["GERMAN","wpa3_cookie_guzzler_15"]=" \${blue_color}Für dieses Ziel wurden zwischengespeicherte SAE-Werte (Scalar und Finite Field) gefunden. \${green_color}Möchtest du sie wiederverwenden? \${normal_color}\${visual_choice}"
-	arr["TURKISH","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}Bu hedef için önbellekte SAE değerleri (Scalar ve Finite Field) bulundu. \${green_color}Yeniden kullanmak ister misin? \${normal_color}\${visual_choice}"
+	arr["TURKISH","wpa3_cookie_guzzler_15"]="\${blue_color}Bu hedef için önbellekte SAE değerleri (Scalar ve Finite Field) bulundu. \${green_color}Yeniden kullanmak ister misin? \${normal_color}\${visual_choice}"
 	arr["ARABIC","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${visual_choice}\${normal_color} \${green_color}هل تريد إعادة استخدامها؟\${blue_color} .تم العثور على قيم SAE (Scalar و Finite Field) مخزنة مؤقتًا لهذا الهدف"
 	arr["CHINESE","wpa3_cookie_guzzler_15"]="\${pending_of_translation} \${blue_color}已为该目标找到缓存的 SAE 值（Scalar 和 Finite Field）。\${green_color}是否要重新使用它们？ \${normal_color}\${visual_choice}"
 }

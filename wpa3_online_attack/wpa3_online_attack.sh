@@ -11,7 +11,7 @@ plugin_author="OscarAkaElvis"
 
 plugin_enabled=1
 
-plugin_minimum_ag_affected_version="11.60"
+plugin_minimum_ag_affected_version="11.61"
 plugin_maximum_ag_affected_version=""
 plugin_distros_supported=("*")
 
@@ -158,7 +158,7 @@ function python3_wpa3_online_attack_script_validation() {
 	return 0
 }
 
-#Custom function. Validate if the system has python3.1+ installed and set python launcher
+#Custom function. Validate if the system has python3.6+ installed and set python launcher
 function python3_wpa3_online_attack_validation() {
 
 	debug_print
@@ -170,8 +170,18 @@ function python3_wpa3_online_attack_validation() {
 			language_strings "${language}" 115 "read"
 			return 1
 		else
-			python_version=$(python -V 2>&1 | sed 's/.* \([0-9]\).\([0-9]\).*/\1\2/')
-			if [ "${python_version}" -lt "31" ]; then
+			local python_major
+			local python_minor
+			local python_version_raw
+			python_version_raw=$(python -V 2>&1)
+			if [[ "${python_version_raw}" =~ ([0-9]+)\.([0-9]+) ]]; then
+				python_major="${BASH_REMATCH[1]}"
+				python_minor="${BASH_REMATCH[2]}"
+			else
+				python_major=0
+				python_minor=0
+			fi
+			if [[ "${python_major}" -lt 3 ]] || { [[ "${python_major}" -eq 3 ]] && [[ "${python_minor}" -lt 6 ]]; }; then
 				echo
 				language_strings "${language}" "wpa3_online_attack_2" "red"
 				language_strings "${language}" 115 "read"
@@ -180,8 +190,18 @@ function python3_wpa3_online_attack_validation() {
 			python3="python"
 		fi
 	else
-		python_version=$(python3 -V 2>&1 | sed 's/.* \([0-9]\).\([0-9]\).*/\1\2/')
-		if [ "${python_version}" -lt "31" ]; then
+		local python_major
+		local python_minor
+		local python_version_raw
+		python_version_raw=$(python3 -V 2>&1)
+		if [[ "${python_version_raw}" =~ ([0-9]+)\.([0-9]+) ]]; then
+			python_major="${BASH_REMATCH[1]}"
+			python_minor="${BASH_REMATCH[2]}"
+		else
+			python_major=0
+			python_minor=0
+		fi
+		if [[ "${python_major}" -lt 3 ]] || { [[ "${python_major}" -eq 3 ]] && [[ "${python_minor}" -lt 6 ]]; }; then
 			echo
 			language_strings "${language}" "wpa3_online_attack_2" "red"
 			language_strings "${language}" 115 "read"
@@ -285,6 +305,15 @@ function wpa3_online_dictionary_attack_option() {
 		managed_option "${interface}"
 	fi
 
+	if [[ -n "${channel}" ]] && [[ "${channel}" -gt 14 ]]; then
+		if [ "${interfaces_band_info['main_wifi_interface','5Ghz_allowed']}" -eq 0 ]; then
+			echo
+			language_strings "${language}" 515 "red"
+			language_strings "${language}" 115 "read"
+			return 1
+		fi
+	fi
+
 	if ! validate_wpa3_network; then
 		return 1
 	fi
@@ -330,6 +359,9 @@ function wpa3_online_attack_prehook_hookable_wpa3_attacks_menu() {
 	elif [ "${arr['ENGLISH',757]}" = "7.  WPA3 online dictionary attack" ]; then
 		plugin_y="wpa3_online_dictionary_attack_option"
 		plugin_y_under_construction=""
+	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 online dictionary attack" ]; then
+		plugin_z="wpa3_online_dictionary_attack_option"
+		plugin_z_under_construction=""
 	fi
 }
 
@@ -365,6 +397,20 @@ function wpa3_online_attack_prehook_hookable_for_languages() {
 		arr["TURKISH",757]="7.  WPA3 çevrimiçi sözlük saldırısı"
 		arr["ARABIC",757]="7.  WPA3 قاموس الهجوم علي الشبكة ل"
 		arr["CHINESE",757]="7.  WPA3 在线字典攻击"
+	elif [ "${arr['ENGLISH',812]}" = "8.  WPA3 attack (use a plugin here)" ]; then
+		arr["ENGLISH",812]="8.  WPA3 online dictionary attack"
+		arr["SPANISH",812]="8.  Ataque de diccionario online de WPA3"
+		arr["FRENCH",812]="8.  Attaque online WPA3 avec dictionaire"
+		arr["CATALAN",812]="8.  Atac de diccionari en línia de WPA3"
+		arr["PORTUGUESE",812]="8.  Ataque online de dicionário no WPA3"
+		arr["RUSSIAN",812]="8.  Онлайн атака на WPA3 со словарём"
+		arr["GREEK",812]="8.  Διαδικτυακή επίθεση σε WPA3 με λεξικό"
+		arr["ITALIAN",812]="8.  Attacco online WPA3 con dizionario"
+		arr["POLISH",812]="8.  Atak słownikowy online WPA3"
+		arr["GERMAN",812]="8.  WPA3-Angriff auf das Online-Wörterbuch"
+		arr["TURKISH",812]="8.  WPA3 çevrimiçi sözlük saldırısı"
+		arr["ARABIC",812]="8.  WPA3 قاموس الهجوم علي الشبكة ل"
+		arr["CHINESE",812]="8.  WPA3 在线字典攻击"
 	fi
 
 	arr["ENGLISH","wpa3_online_attack_1"]="WPA3 online dictionary attacks take significantly longer than offline cracking, so they should be performed only against pure WPA3 networks. If the target is a WPA2/WPA3 Transitional (Mixed mode) network, prefer traditional WPA2 techniques (Handshake, PMKID) or a downgrade attack rather than attempting the slow online WPA3 attack"
@@ -382,19 +428,19 @@ function wpa3_online_attack_prehook_hookable_for_languages() {
 	arr["CHINESE","wpa3_online_attack_1"]="针对 WPA3 的在线字典攻击比离线破解需要的时间长得多，因此应仅针对纯 WPA3 网络执行。如果目标是 WPA2/WPA3 混合模式 (Mixed mode)，则应优先使用传统的 WPA2 技术（Handshake, PMKID）或降级攻击，而不是尝试缓慢的在线 WPA3 攻击"
 	wpa3_hints+=("wpa3_online_attack_1")
 
-	arr["ENGLISH","wpa3_online_attack_2"]="This attack requires to have python3.1+ installed on your system"
-	arr["SPANISH","wpa3_online_attack_2"]="Este ataque requiere tener python3.1+ instalado en el sistema"
-	arr["FRENCH","wpa3_online_attack_2"]="Cette attaque a besoin de python3.1+ installé sur le système"
-	arr["CATALAN","wpa3_online_attack_2"]="Aquest atac requereix tenir python3.1+ instal·lat al sistema"
-	arr["PORTUGUESE","wpa3_online_attack_2"]="Este ataque necessita do python3.1+ instalado no sistema"
-	arr["RUSSIAN","wpa3_online_attack_2"]="Для этой атаки необходимо, чтобы в системе был установлен python3.1+"
-	arr["GREEK","wpa3_online_attack_2"]="Αυτή η επίθεση απαιτεί την εγκατάσταση python3.1+ στο σύστημά σας"
-	arr["ITALIAN","wpa3_online_attack_2"]="Questo attacco richiede che python3.1+ sia installato nel sistema"
-	arr["POLISH","wpa3_online_attack_2"]="Ten atak wymaga zainstalowania w systemie python3.1+"
-	arr["GERMAN","wpa3_online_attack_2"]="Für diesen Angriff muss python3.1+ auf dem System installiert sein"
-	arr["TURKISH","wpa3_online_attack_2"]="Bu saldırı için sisteminizde, python3.1+'ün kurulu olmasını gereklidir"
-	arr["ARABIC","wpa3_online_attack_2"]="على النظام python3.1+ يتطلب هذا الهجوم تثبيت"
-	arr["CHINESE","wpa3_online_attack_2"]="此攻击需要在您的系统上安装 python3.1+"
+	arr["ENGLISH","wpa3_online_attack_2"]="This attack requires to have python3.6+ installed on your system"
+	arr["SPANISH","wpa3_online_attack_2"]="Este ataque requiere tener python3.6+ instalado en el sistema"
+	arr["FRENCH","wpa3_online_attack_2"]="Cette attaque a besoin de python3.6+ installé sur le système"
+	arr["CATALAN","wpa3_online_attack_2"]="Aquest atac requereix tenir python3.6+ instal·lat al sistema"
+	arr["PORTUGUESE","wpa3_online_attack_2"]="Este ataque necessita do python3.6+ instalado no sistema"
+	arr["RUSSIAN","wpa3_online_attack_2"]="Для этой атаки необходимо, чтобы в системе был установлен python3.6+"
+	arr["GREEK","wpa3_online_attack_2"]="Αυτή η επίθεση απαιτεί την εγκατάσταση python3.6+ στο σύστημά σας"
+	arr["ITALIAN","wpa3_online_attack_2"]="Questo attacco richiede che python3.6+ sia installato nel sistema"
+	arr["POLISH","wpa3_online_attack_2"]="Ten atak wymaga zainstalowania w systemie python3.6+"
+	arr["GERMAN","wpa3_online_attack_2"]="Für diesen Angriff muss python3.6+ auf dem System installiert sein"
+	arr["TURKISH","wpa3_online_attack_2"]="Bu saldırı için sisteminizde, python3.6+'ün kurulu olmasını gereklidir"
+	arr["ARABIC","wpa3_online_attack_2"]="على النظام python3.6+ يتطلب هذا الهجوم تثبيت"
+	arr["CHINESE","wpa3_online_attack_2"]="此攻击需要在您的系统上安装 python3.6+"
 
 	arr["ENGLISH","wpa3_online_attack_3"]="The python3 script required as part of this plugin to run this attack is missing. Please make sure that the file \"\${normal_color}wpa3_online_attack.py\${red_color}\" exists and that it is in the plugins dir next to the \"\${normal_color}wpa3_online_attack.sh\${red_color}\" file"
 	arr["SPANISH","wpa3_online_attack_3"]="El script de python3 requerido como parte de este plugin para ejecutar este ataque no se encuentra. Por favor, asegúrate de que existe el fichero \"\${normal_color}wpa3_online_attack.py\${red_color}\" y que está en la carpeta de plugins junto al fichero \"\${normal_color}wpa3_online_attack.sh\${red_color}\""

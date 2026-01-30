@@ -219,7 +219,7 @@ class airgeddon_wacker(object):
 		self.send_to_server(f'SET_NETWORK 0 bssid {self.bssid}')
 		self.send_to_server(f'SET_NETWORK 0 scan_freq {self.freq}')
 		self.send_to_server(f'SET_NETWORK 0 freq_list {self.freq}')
-		self.send_to_server(f'SET_NETWORK 0 ieee80211w 1')
+		self.send_to_server(f'SET_NETWORK 0 ieee80211w 2')
 		self.send_to_server(f'DISABLE_NETWORK 0')
 
 	def send_connection_attempt(self, psk):
